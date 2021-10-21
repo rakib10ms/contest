@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Contest;
 use App\Models\Topic;
 use DB;
+use File;
 
 
 class ContestController extends Controller
@@ -19,7 +20,7 @@ class ContestController extends Controller
     public function index()
     {
         //
-             $contests=Contest::orderBy('id','desc')->get();
+             $contests=DB::table('contests')->join('topics','contests.topic_id','=','topics.id')->select('contests.*','topics.name as topic_name')->orderBy('id','desc')->get();
 
          return view('backend.contest.index',compact('contests'));
 
@@ -46,9 +47,11 @@ class ContestController extends Controller
      */
     public function store(Request $request)
     {
+
+        // dd($request->all());
          $request->validate([
 
-            'image' => 'required|image',
+            'image' => 'required|max:4000',
             'name' => 'required|unique:contests',
             'topic_id' => 'required',
             'status' => 'required',
@@ -66,8 +69,8 @@ class ContestController extends Controller
             $filename=time().'.'.$ext;
             $file->move(public_path('assets/uploads/contest/'),$filename);
             $contest->image=$filename;
-        
-        }
+
+
         $contest->topic_id=$request->input('topic_id');
         $contest->name=$request->input('name');
         $contest->status=$request->input('status');
@@ -77,11 +80,11 @@ class ContestController extends Controller
        
         
         $contest->save();
-        return redirect('/contest')->with('status','Contest added successfully');
-
-  
-    
         }
+            return redirect()->route('contest.index')->with('status','Contest added successfully');
+
+        
+    }
 
     /**
      * Display the specified resource.
@@ -102,10 +105,10 @@ class ContestController extends Controller
      */
     public function edit($id)
     {
-          $editProduct=Product::find($id);
-        $category=Category::all();
+          $editContest=Contest::find($id);
+          $topics=Topic::all();
 
-        return view ('admin.product.edit',compact('editProduct','category'));
+        return view ('backend.contest.edit',compact('editContest','topics'));
      }
 
     /**
@@ -117,7 +120,45 @@ class ContestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+            $contest=Contest::find($id);
+      
+        if($request->hasFile('image')){
+            $file=$request->file('image');
+            $ext=$file->getClientOriginalName();
+            $filename=time().'.'.$ext;
+            $file->move(public_path('assets/uploads/contest/'),$filename);
+            $contest->image=$filename;
+
+
+        $contest->topic_id=$request->input('topic_id');
+        $contest->name=$request->input('name');
+        $contest->status=$request->input('status');
+        $contest->description=$request->input('description');
+        $contest->start_date=$request->input('start_date');
+        $contest->end_date=$request->input('end_date');
+       
+        
+        $contest->save();
+        return redirect()->route('contest.index')->with('status','Contest Updated successfully');
+
+        }
+            
+
+
+        else{
+         $contest->topic_id=$request->input('topic_id');
+        $contest->name=$request->input('name');
+        $contest->status=$request->input('status');
+        $contest->description=$request->input('description');
+        $contest->start_date=$request->input('start_date');
+        $contest->end_date=$request->input('end_date');
+       
+        $contest->save();
+        return redirect()->route('contest.index')->with('status','Contest Updated successfully');
+
+    
+        }
+
     }
 
     /**
@@ -128,6 +169,19 @@ class ContestController extends Controller
      */
     public function destroy($id)
     {
-        //
+           $deleteContest=Contest::find($id);
+        $image='assets/uploads/contest/'.$deleteContest->image;
+        if(File::exists($image)){
+            File::delete($image);
+        }
+
+      
+        $deleteContest->delete();
+
+        return redirect()->route('contest.index');
+
+
+      
     }
+    
 }

@@ -19,7 +19,7 @@ class CreateContestsTable extends Migration
             $table->string('topic_id');
             $table->string('image');
             $table->longText('description');
-            $table->integer('status')->comment('1="active",2="Inactive"');
+            $table->integer('status')->comment('1="active",0="Inactive"');
              $table->string('start_date');
             $table->string('end_date');
             $table->timestamps();

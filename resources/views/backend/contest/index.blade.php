@@ -3,7 +3,8 @@
 
 
 <div class="header d-flex justify-content-between">
-<h1> All TOPICS  </h1>
+<h1> All CONTEST  </h1>
+@include('message.message')
 
 <a href="{{route('contest.create')}}" class="btn btn-primary ">ADD CONTEST</a>
 </div>
@@ -12,36 +13,46 @@
   <thead>
     <tr>
       <th scope="col">#SL</th>
+      <th scope="col">Contest Name</th>
       <th scope="col">Topic Name</th>
-      <th scope="col">Topic Description</th>
-      <th scope="col">Topic Status</th>
+      <th scope="col">Description</th>
+      <th scope="col">Image</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">End Date</th>
+      <th scope="col">Contest Status</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
 
-<!--     @if (session('status'))
-    <div class="alert alert-success">
-        {{ session('status') }}
-    </div>
-   @endif
- -->
+
+@foreach($contests as $key => $contest)
+
     <tr>
-      <th scope="row">lol</th>
-      <td>lol</td>
-      <td>lol</td>
+      <th scope="row">{{$key+1}}</th>
+      <td>{{$contest->name}}</td>
+      <td>{{$contest->topic_name}}</td>
+      <td>{{$contest->description}}</td>
+      <td><img src="{{asset('assets/uploads/contest/'.$contest->image)}}" style="height:100px;width: 100px;object-fit:cover"/></td>
+      <td>{{$contest->start_date}}</td>
+      <td>{{$contest->end_date}}</td>
       <td>
-     dsada
-      </td>
+        @if( $contest->status==1)
+       <span class="badge badge-success">Active </span>
+       @else
+            <span class="badge badge-secondary">In Active </span>
+
+       @endif
+     </td>    
         <td>
-     <a href="" class="btn btn-success">EDIT  </a>
+     <a href="{{route('contest.edit',$contest->id)}}" class="btn btn-success">EDIT  </a>
      <!-- Button trigger modal -->
-      <a href="" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+      <a href="{{route('contest.destroy',$contest->id)}}" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$contest->id}}">
         DELETE
       </a>
 
       <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="exampleModal{{$contest->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -53,7 +64,7 @@
          
             <div class="modal-footer">
               <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-              <a href="" class="btn btn-primary">Save changes</a>
+              <a href="{{route('contest.destroy',$contest->id)}}" class="btn btn-primary">Save changes</a>
             </div>
           </div>
         </div>
@@ -63,7 +74,7 @@
       
       
     </tr>
-  
+  @endforeach
 
   </tbody>
 </table>

@@ -2,6 +2,7 @@
 @section('section')
 
 <h1> ADD TOPICS</h1>
+@include('message.message')
 
 	<form action="{{route('topic.store')}}" method="POST">
     @csrf
@@ -14,7 +15,9 @@
   
     <div class="form-group col-md-10">
    <label for="status">Status *</label>
-      <select id="status" class="form-control" name="status" required>
+      <select id="status" class="form-control" name="status" >
+       <option value="">Select Status</option>
+
         <option value="1">Active</option>
         <option value="0">InActive</option>
       </select>
@@ -23,12 +26,12 @@
 
     <div class="form-group  col-md-10">
     <label for="exampleFormControlTextarea1">Description *</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"  name="description"  required></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"  name="description"></textarea>
  
 </div>
 
  <div class="form-group">
-  <button type="submit" class="btn btn-primary">Sign in</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </div>
 </div>
 </div>

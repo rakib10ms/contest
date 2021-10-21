@@ -13,15 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+
+Route::group(['prefix' => 'admin','middleware'=>['auth','isAdmin']], function() {
 
 Route::get('/dashboard', function () {
     return view('backend.master');
 });
-
-Route::group(['prefix' => 'admin'], function() {
 
 //topic category
     Route::get('topic', '\App\Http\Controllers\Admin\TopicController@index')->name('topic.index');
@@ -39,3 +38,16 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('contest/update/{id}', '\App\Http\Controllers\Admin\ContestController@update')->name('contest.update');
     Route::get('contest/destroy/{id}', '\App\Http\Controllers\Admin\ContestController@destroy')->name('contest.destroy');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+//frontend routes
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+Route::get('/',  '\App\Http\Controllers\Frontend\FrontendController@index');
