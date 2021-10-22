@@ -31,6 +31,8 @@ class LoginController extends Controller
 
      protected function authenticated()
     {
+        if(Auth::user()->status=='1'){
+
         if(Auth::user()->user_type == '1') //1 = Admin Login
         {
             return redirect('admin/dashboard')->with('status','Welcome to your dashboard');
@@ -38,6 +40,14 @@ class LoginController extends Controller
         elseif(Auth::user()->user_type == '0') // Normal or Default User Login
         {
             return redirect('/')->with('status','Logged in successfully');
+        }
+    }
+
+
+        else
+        {
+             return route('/login')->with('status','Your Id is deactivated');
+
         }
     }
 
@@ -51,3 +61,4 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 }
+

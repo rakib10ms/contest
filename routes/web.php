@@ -22,6 +22,10 @@ Route::get('/dashboard', function () {
     return view('backend.master');
 });
 
+//all users
+
+    Route::get('/alluser', '\App\Http\Controllers\Admin\allUserController@index')->name('allUser');
+
 //topic category
     Route::get('topic', '\App\Http\Controllers\Admin\TopicController@index')->name('topic.index');
     Route::get('topic/create', '\App\Http\Controllers\Admin\TopicController@create')->name('topic.create');
@@ -45,9 +49,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //frontend routes
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 
-Route::get('/',  '\App\Http\Controllers\Frontend\FrontendController@index');
+Route::get('/',  '\App\Http\Controllers\Frontend\FrontendController@index')->name('contest');
+Route::get('/past-contest',  '\App\Http\Controllers\Frontend\FrontendController@pastContest')->name('past-contest');
+Route::get('/contest-desc/{id}',  '\App\Http\Controllers\Frontend\FrontendController@contestDescription')->name('contest-desc');
+Route::get('/contest-form/',  '\App\Http\Controllers\Frontend\FrontendController@contestForm')->name('contest-form')->middleware('auth');
