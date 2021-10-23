@@ -13,12 +13,23 @@ class allUserController extends Controller
         return view('backend.users.index',compact('allUsers'));
 
   }
-   public function changeStatus(Request $request)
+   public function changeStatus($id)
     {
-        $user = User::find($request->user_id);
-        $user->status = $request->status;
-        $user->save();
+        $user = User::where('id',$id)->first();
+        // dd($user);
+        return view('backend.users.edit',compact('user'));
   
-        return response()->json(['success'=>'Status change successfully.']);
+    }  
+
+     public function updateStatus(Request $request)
+    {
+        $status = $request->input('status');
+
+        $update=new User();
+
+        $update->status=$status;
+        $update->save();
+        return redirect()->route('allUser')->with('status','status updated successfully');
+  
     }
 }

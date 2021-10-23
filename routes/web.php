@@ -25,7 +25,8 @@ Route::get('/dashboard', function () {
 //all users
 
     Route::get('/alluser', '\App\Http\Controllers\Admin\allUserController@index')->name('allUser');
-    Route::get('/changeStatus', '\App\Http\Controllers\Admin\allUserController@changeStatus')->name('changeStatus');
+    Route::get('/changeStatus/{id}', '\App\Http\Controllers\Admin\allUserController@changeStatus')->name('changeStatus');
+    Route::post('/updateStatus/{id}', '\App\Http\Controllers\Admin\allUserController@updateStatus')->name('updateStatus');
 
 
 //topic category
@@ -47,6 +48,9 @@ Route::get('/dashboard', function () {
 
     //contest result
      Route::get('contest/result', '\App\Http\Controllers\Admin\ContestResultController@contestResult')->name('contest.result');
+
+     //contest selection
+     Route::get('admin/contest/selection/{id}', '\App\Http\Controllers\Admin\ContestWinnerController@contestSelection')->name('contest.select');
 
 
 });

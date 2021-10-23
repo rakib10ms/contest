@@ -39,7 +39,7 @@
       <td>{{$contest->updated_at}}</td>
      
         <td>
-     <a href="" class="btn btn-success">EDIT  </a>
+     <a href="{{url('admin/contest/selection',$contest->id)}}" class="btn btn-success"> <i class="fa fa-trophy mx-2" aria-hidden="true"></i> Select Winner  </a>
      <!-- Button trigger modal -->
       <a href="" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
         DELETE
