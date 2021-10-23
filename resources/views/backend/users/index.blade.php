@@ -42,6 +42,8 @@
       </td>
         <td>
      <a href="" class="btn btn-success">EDIT  </a>
+      <!--  <input data-id="{{$user->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $user->status ? 'checked' : '' }}>
+ -->
      <!-- Button trigger modal -->
    
 

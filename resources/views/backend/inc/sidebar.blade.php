@@ -41,6 +41,17 @@
     
           </ul>
         </li>
+
+          <li class="br-menu-item mt-2">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+            <span class="menu-item-label">CONTEST PARTICIPATES</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            <li class="sub-item"><a href="{{route('contest.result')}}" class="sub-link">All Participates</a></li>
+    
+          </ul>
+        </li>
     
     
 

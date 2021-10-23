@@ -25,6 +25,8 @@ Route::get('/dashboard', function () {
 //all users
 
     Route::get('/alluser', '\App\Http\Controllers\Admin\allUserController@index')->name('allUser');
+    Route::get('/changeStatus', '\App\Http\Controllers\Admin\allUserController@changeStatus')->name('changeStatus');
+
 
 //topic category
     Route::get('topic', '\App\Http\Controllers\Admin\TopicController@index')->name('topic.index');
@@ -41,6 +43,12 @@ Route::get('/dashboard', function () {
     Route::get('contest/edit/{id}', '\App\Http\Controllers\Admin\ContestController@edit')->name('contest.edit');
     Route::post('contest/update/{id}', '\App\Http\Controllers\Admin\ContestController@update')->name('contest.update');
     Route::get('contest/destroy/{id}', '\App\Http\Controllers\Admin\ContestController@destroy')->name('contest.destroy');
+
+
+    //contest result
+     Route::get('contest/result', '\App\Http\Controllers\Admin\ContestResultController@contestResult')->name('contest.result');
+
+
 });
 Auth::routes();
 
@@ -54,4 +62,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/',  '\App\Http\Controllers\Frontend\FrontendController@index')->name('contest');
 Route::get('/past-contest',  '\App\Http\Controllers\Frontend\FrontendController@pastContest')->name('past-contest');
 Route::get('/contest-desc/{id}',  '\App\Http\Controllers\Frontend\FrontendController@contestDescription')->name('contest-desc');
-Route::get('/contest-form/',  '\App\Http\Controllers\Frontend\FrontendController@contestForm')->name('contest-form')->middleware('auth');
+Route::get('/contest-form/{id}',  '\App\Http\Controllers\Frontend\FrontendController@contestForm')->name('contest-form')->middleware('auth');
+Route::post('/contest-form',  '\App\Http\Controllers\Frontend\FrontendController@contestFormSubmit')->name('contest-form')->middleware('auth');

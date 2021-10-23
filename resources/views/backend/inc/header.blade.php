@@ -37,10 +37,5 @@
     <!-- Bracket CSS -->
     <link rel="stylesheet" href="{{asset('Backend/css/bracket.css')}}">
 
-        <link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
-        <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css">
-
-
- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
- <link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
- <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css">
+<link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">

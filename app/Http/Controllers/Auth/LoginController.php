@@ -31,7 +31,7 @@ class LoginController extends Controller
 
      protected function authenticated()
     {
-        if(Auth::user()->status=='1'){
+      
 
         if(Auth::user()->user_type == '1') //1 = Admin Login
         {
@@ -41,14 +41,10 @@ class LoginController extends Controller
         {
             return redirect('/')->with('status','Logged in successfully');
         }
-    }
+    
 
 
-        else
-        {
-             return route('/login')->with('status','Your Id is deactivated');
-
-        }
+       
     }
 
     /**

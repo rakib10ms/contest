@@ -13,4 +13,12 @@ class allUserController extends Controller
         return view('backend.users.index',compact('allUsers'));
 
   }
+   public function changeStatus(Request $request)
+    {
+        $user = User::find($request->user_id);
+        $user->status = $request->status;
+        $user->save();
+  
+        return response()->json(['success'=>'Status change successfully.']);
+    }
 }

@@ -92,8 +92,8 @@ class TopicController extends Controller
 
 
         $updateData->name=$request->name;
-        $updateData->name=$request->status;
-        $updateData->name=$request->description;
+        $updateData->status=$request->status;
+        $updateData->description=$request->description;
         $updateData->save();
        return redirect()->route('topic.index')->with('status','Topic updated successfully');
 

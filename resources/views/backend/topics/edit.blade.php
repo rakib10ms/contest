@@ -13,24 +13,23 @@
     </div>
 
 
-      <div class="form-group col-md-10 ">
+    <div class="form-group col-md-10 ">
     <label for="description" class="d-block">Description *</label>
-    <textarea class="form-control" id="description" rows="5"  name="description">{{$topicEdit->description}}</textarea>
+    <textarea class="form-control" id="my-editor" rows="5"  name="description">{{$topicEdit->description}}</textarea>
   
-  </div>
+     </div>
   
     <div class="form-group col-md-10">
-   <label for="status">Status *</label>
+      <label for="status">Status *</label>
       <select id="status" class="form-control" name="status" >
         <option value="1" {{$topicEdit->status==1?'selected':''}}>Active</option>
         <option value="0" {{$topicEdit->status==0?'selected':''}}>InActive</option>
+      </select>
 
     </div>
-
-
-<div class="form-group">
-    <button type="submit" class="btn btn-primary">Update</button>
-  </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Update</button>
+          </div>
   </form>
 
 </div>

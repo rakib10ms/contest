@@ -35,10 +35,8 @@
     <script src="{{asset('Backend/js/ResizeSensor.js')}}"></script>
     <script src="{{asset('Backend/js/dashboard.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"> </script>
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"> </script>
-    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
+   <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"> </script>
+  <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"> </script>
     <script>
       $(function(){
         'use strict'
@@ -73,4 +71,11 @@
       responsive: true,
       
     });
+    </script>
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('my-editor',
+  {
+    customConfig: '/custom/ckeditor_config.js'
+});
     </script>
