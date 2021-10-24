@@ -74,3 +74,8 @@ Route::get('/past-contest',  '\App\Http\Controllers\Frontend\FrontendController@
 Route::get('/contest-desc/{id}',  '\App\Http\Controllers\Frontend\FrontendController@contestDescription')->name('contest-desc');
 Route::get('/contest-form/{id}',  '\App\Http\Controllers\Frontend\FrontendController@contestForm')->name('contest-form')->middleware('auth');
 Route::post('/updateContest-forms/{id}',  '\App\Http\Controllers\Frontend\FrontendController@contestFormSubmit')->name('contest-forms')->middleware('auth');
+
+
+Route::get('/my-contest',  '\App\Http\Controllers\Frontend\ProfileController@myContest')->name('my-contest');
+Route::get('/my-profile',  '\App\Http\Controllers\Frontend\ProfileController@myProfile')->name('my-profile');
+Route::post('/update-password/{id}',  '\App\Http\Controllers\Frontend\ProfileController@updatePassword')->name('update-password');

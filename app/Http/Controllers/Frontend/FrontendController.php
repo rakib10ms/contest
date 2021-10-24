@@ -47,7 +47,7 @@ class FrontendController extends Controller
 
     public function contestForm($id){
 
-      $contestId=Contest::find($id);
+      $contestId=Contest::find($id)->first();
       // dd($contestId);
 
       $user=User::where('id',Auth::id())->first();
@@ -62,7 +62,7 @@ class FrontendController extends Controller
             'file' => 'required|max:5000',
             ]);
 
-
+       
         $contest_id=$request->input('contest_id');
         $user_id=Auth::id();
          
@@ -73,7 +73,7 @@ class FrontendController extends Controller
 }
   
          else{
-            $contest=new ContestResult();
+            $contest=ContestResult::find($id);
       
         if($request->hasFile('file')){
             $file=$request->file('file');
