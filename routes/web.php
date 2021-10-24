@@ -45,13 +45,19 @@ Route::get('/dashboard', function () {
     Route::post('contest/update/{id}', '\App\Http\Controllers\Admin\ContestController@update')->name('contest.update');
     Route::get('contest/destroy/{id}', '\App\Http\Controllers\Admin\ContestController@destroy')->name('contest.destroy');
 
+//contest_code seacrh
+ Route::post('contest/codesearch', '\App\Http\Controllers\Admin\ContestController@contestCodeSearch')->name('contest.search');
+
 
     //contest result
      Route::get('contest/result', '\App\Http\Controllers\Admin\ContestResultController@contestResult')->name('contest.result');
 
      //contest selection
-     Route::get('admin/contest/selection/{id}', '\App\Http\Controllers\Admin\ContestWinnerController@contestSelection')->name('contest.select');
+     Route::get('contest/selection/{id}', '\App\Http\Controllers\Admin\ContestWinnerController@contestSelection')->name('contest.select');
+    Route::post('contest/selectionUpdate/{id}', '\App\Http\Controllers\Admin\ContestWinnerController@contestSelectionUpdate')->name('contest.selectUpdate');
 
+//all winner
+    Route::get('all/winner', '\App\Http\Controllers\Admin\ContestWinnerController@allWinner')->name('all-winner');
 
 });
 Auth::routes();
@@ -67,4 +73,4 @@ Route::get('/',  '\App\Http\Controllers\Frontend\FrontendController@index')->nam
 Route::get('/past-contest',  '\App\Http\Controllers\Frontend\FrontendController@pastContest')->name('past-contest');
 Route::get('/contest-desc/{id}',  '\App\Http\Controllers\Frontend\FrontendController@contestDescription')->name('contest-desc');
 Route::get('/contest-form/{id}',  '\App\Http\Controllers\Frontend\FrontendController@contestForm')->name('contest-form')->middleware('auth');
-Route::post('/contest-form',  '\App\Http\Controllers\Frontend\FrontendController@contestFormSubmit')->name('contest-form')->middleware('auth');
+Route::post('/updateContest-forms/{id}',  '\App\Http\Controllers\Frontend\FrontendController@contestFormSubmit')->name('contest-forms')->middleware('auth');

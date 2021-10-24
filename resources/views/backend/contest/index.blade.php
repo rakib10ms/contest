@@ -4,6 +4,24 @@
 
 <div class="header d-flex justify-content-between">
 <h1> All CONTEST  </h1>
+
+<div class="col-md-6 d-flex">
+  <form action="{{route('contest.search')}}" method="POST">
+    @csrf
+<div class="input-group">
+  <div class="form-outline">
+    <input type="search" id="form1" class="form-control" name="contest_code" />
+    <label class="form-label" for="form1">Search</label>
+  </div>
+  <button type="submit" class="btn btn-primary">
+    <i class="fas fa-search"></i>
+  </button>
+</div>
+</form>
+</div>
+
+
+
 @include('message.message')
 
 <a href="{{route('contest.create')}}" class="btn btn-primary ">ADD CONTEST</a>
@@ -13,6 +31,7 @@
   <thead>
     <tr>
       <th scope="col">#SL</th>
+       <th scope="col">Contest Code</th>
       <th scope="col">Contest Name</th>
       <th scope="col">Topic Name</th>
       <th scope="col">Description</th>
@@ -30,6 +49,7 @@
 
     <tr>
       <th scope="row">{{$key+1}}</th>
+      <td>{{$contest->code}}</td>
       <td>{{$contest->name}}</td>
       <td>{{$contest->topic_name}}</td>
       <td>{{$contest->description}}</td>

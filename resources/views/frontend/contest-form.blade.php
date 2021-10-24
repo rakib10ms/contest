@@ -18,7 +18,7 @@ Homepage
               </div>
               <div class="card-body">
 
-                <form autocomplete="off" class="form" role="form" method="POST" enctype="multipart/form-data" action="{{route('contest-form')}}">
+                <form autocomplete="off" class="form" role="form" method="POST" enctype="multipart/form-data" action="{{route('contest-forms',$contestId->id)}}">
                 	@csrf
 
                   <input type="hidden" name="contest_id" value="{{$contestId->id}}">

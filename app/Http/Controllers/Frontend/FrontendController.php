@@ -55,7 +55,7 @@ class FrontendController extends Controller
     }
 
 
-    public function contestFormSubmit(Request $request){
+    public function contestFormSubmit(Request $request,$id){
 
          $request->validate([
 
@@ -69,7 +69,7 @@ class FrontendController extends Controller
 
           $check=ContestResult::where('user_id',$user_id)->where('contest_id',$contest_id)->exists();
          if($check){
-      return redirect()->route('contest-form')->with('status','You already Participated this contest');
+      return redirect()->route('contest-forms')->with('status','You already Participated this contest');
 }
   
          else{
@@ -89,7 +89,7 @@ class FrontendController extends Controller
        
         
         $contest->save();
-         return redirect()->route('contest')->with('status','Form Submiited successfully');
+         return redirect()->route('contest-form')->with('status','Form Submiited successfully');
 
         }        
 

@@ -8,6 +8,7 @@ use App\Models\Contest;
 use App\Models\Topic;
 use DB;
 use File;
+use Illuminate\Support\Str;
 
 
 class ContestController extends Controller
@@ -48,6 +49,15 @@ class ContestController extends Controller
     public function store(Request $request)
     {
 
+    
+
+        $cat_name=DB::table('topics')->where('id',$request->topic_id)->first();
+
+        $sub = substr($cat_name->name,0,3);
+        $result=strtoupper($sub);
+       $code=$result.random_int(100000, 999999);
+
+
         // dd($request->all());
          $request->validate([
 
@@ -59,6 +69,8 @@ class ContestController extends Controller
              'start_date' => 'required',
             'end_date' => 'required',    
             ]);
+    
+ 
 
 
         $contest=new Contest();
@@ -71,12 +83,20 @@ class ContestController extends Controller
             $contest->image=$filename;
 
 
+        $cat_name=DB::table('topics')->where('id',$request->topic_id)->first();
+
+        $sub = substr($cat_name->name,0,3);
+        $result=strtoupper($sub);
+       $check=$result.random_int(100000, 999999);
+
+
         $contest->topic_id=$request->input('topic_id');
         $contest->name=$request->input('name');
         $contest->status=$request->input('status');
         $contest->description=$request->input('description');
         $contest->start_date=$request->input('start_date');
         $contest->end_date=$request->input('end_date');
+        $contest->code=$code;
        
         
         $contest->save();
@@ -92,6 +112,15 @@ class ContestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
+
+    public function contestCodeSearch(Request $request){
+        $seachCode=$request->contest_code;
+        $results=Contest::where('code',$seachCode)->first();
+        dd($results);
+
+    }
     public function show($id)
     {
         //

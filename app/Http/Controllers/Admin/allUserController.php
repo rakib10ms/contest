@@ -21,14 +21,15 @@ class allUserController extends Controller
   
     }  
 
-     public function updateStatus(Request $request)
+     public function updateStatus(Request $request,$id)
     {
+
+        $findUser=User::find($id);
+
         $status = $request->input('status');
+        $findUser->status= $status;
 
-        $update=new User();
-
-        $update->status=$status;
-        $update->save();
+        $findUser->save();
         return redirect()->route('allUser')->with('status','status updated successfully');
   
     }
