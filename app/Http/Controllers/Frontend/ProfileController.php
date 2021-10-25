@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Auth;
 use Hash;
+use File;
+use Image;
 
 class ProfileController extends Controller
 {
@@ -42,26 +44,70 @@ class ProfileController extends Controller
               $users->password = bcrypt($request->newpassword);
               User::where( 'id' , Auth::user()->id)->update( array( 'password' =>  $users->password));
  
-              session()->flash('message','password updated successfully');
-              return redirect()->back();
+              session()->flash('success','password updated successfully');
+              return redirect()->back()->with('success','password updated successfully');
             }
  
             else{
-                  session()->flash('message','new password can not be the old password!');
-                  return redirect()->back();
+                   session()->flash('danger','new password can not be the old password!');
+
+                  return redirect()->back()->with('danger','new password can not be the old password!');
                 }
  
            }
  
           else{
-               session()->flash('message','old password doesnt matched ');
-               return redirect()->back();
+             session()->flash('danger','Old Password doesnot matched!');
+
+               return redirect()->back()->with('danger','Old Password doesnot matched!');
              }
  
        }
 
-
  
+ public function updateProfile(Request $request,$id){
+        $this->validate($request, [
+ 
+        'name' => 'required',
+        'phone' => 'required',
+        'address' => 'required',
+        'district' => 'required',
+        'image' => 'image',
+        ]);
+
+    $find=User::find($id);
+
+    if($request->hasFile('image')){
+            $file=$request->file('image');
+            $ext=$file->getClientOriginalName();
+            $filename=time().'.'.$ext;
+            $file->move(public_path('assets/uploads/user/'),$filename);
+            $find->image=$filename;
+
+    $find->name=$request->get('name');
+    $find->phone=$request->get('phone');
+    $find->address=$request->get('address');
+    $find->district=$request->get('district');
+    $find->save();
+ }
+ else{
+ $find->name=$request->get('name');
+    $find->phone=$request->get('phone');
+    $find->address=$request->get('address');
+    $find->district=$request->get('district');
+    $find->save();
+
+
+ }
+ return redirect()->back()->with('status','Profile Updated successfully');
+
+}
+ 
+ public function profileView(){
+    $myInfo=User::where('id',Auth::id())->first();
+    return view('frontend.profile.userprofile-view',compact('myInfo'));
+
+ }
 
     
 }

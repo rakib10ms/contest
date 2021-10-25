@@ -7,50 +7,55 @@ Homepage
 @section('section')
 
 <div class="container my-5">
+    <a href="{{route('my-profileView')}}" class="btn btn-info mx-2 float-right "> View Profile</a>
+
 <div class="card card-body">
 <div class="container">
   <div class="row">
     <div class="col-md-6 ">
-  <h3> My Profile </h3>
- <form class="" action="" method="POST">
+  <h3> Edit Profile </h3>
+ <form class="" action="{{route('userupdate-profile',Auth::id())}}" method="POST">
+  @csrf
   <!-- 2 column grid layout with text inputs for the first and last names -->
+  <div class="text-right py-3">
+    <img src="" style="width:80px;border: 1px solid #c4c4c4; height: 80px;margin-top: -50px;object-fit: cover;" >
+  </div>
       <div class="form-outline  mb-4">
-        <input type="text" id="form6Example1" class="form-control" value="{{$user->name}}" />
-        <label class="form-label" for="form6Example1">Name</label>
+                <label class="form-label" for="form6Example1">Name</label>
+
+        <input type="text" id="form6Example1" class="form-control" name="name" value="{{$user->name}}" />
       </div>
       <div class="form-outline  mb-4">
-        <input type="text" id="form6Example2" class="form-control" value="{{$user->email}}" />
-        <label class="form-label" for="form6Example2">Email</label>
+                <label class="form-label" for="form6Example2">Email</label>
+
+        <input type="text" id="form6Example2" class="form-control" value="{{$user->email}}" readonly="" />
       </div>
 
   <!-- Text input -->
+
+    <div class="form-outline mb-4">
+        <label class="form-label" for="form6Example3">Profile Image</label>
+
+    <input type="file" id="form6Example3" class="form-control" name="image" />
+  </div> 
   <div class="form-outline mb-4">
-    <input type="text" id="form6Example3" class="form-control" value="{{$user->phone}}" />
-    <label class="form-label" for="form6Example3">Phone</label>
+        <label class="form-label" for="form6Example3">Phone</label>
+
+    <input type="text" id="form6Example3" class="form-control" name="phone" value="{{$user->phone}}" />
   </div>
 
   <!-- Text input -->
   <div class="form-outline mb-4">
-    <input type="text" id="form6Example4" class="form-control" value="{{$user->address}}" />
-    <label class="form-label" for="form6Example4">Address</label>
+        <label class="form-label" for="form6Example4">District</label>
+
+    <input type="text" id="form6Example4" class="form-control" name="district" value="{{$user->district}}" />
   </div>
 
   <!-- Email input -->
   <div class="form-outline mb-4">
-    <input type="email" id="form6Example5" class="form-control" />
-    <label class="form-label" for="form6Example5">City</label>
-  </div>
+        <label class="form-label" for="form6Example5">Address</label>
 
-  <!-- Number input -->
-  <div class="form-outline mb-4">
-    <input type="number" id="form6Example6" class="form-control" />
-    <label class="form-label" for="form6Example6">Phone</label>
-  </div>
-
-  <!-- Message input -->
-  <div class="form-outline mb-4">
-    <textarea class="form-control" id="form6Example7" rows="4"></textarea>
-    <label class="form-label" for="form6Example7">Additional information</label>
+    <input type="text" id="form6Example5" class="form-control" name="address" value="{{$user->address}}"/>
   </div>
 
 
@@ -61,29 +66,39 @@ Homepage
 
 <div class="col-md-6">
   <h3> Update Password</h3>
-    @if (count($errors))
-      @foreach ($errors->all() as $error)
-        <p class="alert alert-danger">{{$error}}</p>
-      @endforeach
-      @endif
-
-
+@if(session()->has('success'))
+    <div class="alert alert-success">
+        {{ session()->get('success') }}
+    </div>
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
    <form action="{{route('update-password',$user->id)}}" method="POST">
     @csrf
   <!-- 2 column grid layout with text inputs for the first and last names -->
       <div class="form-outline  mb-4">
+                <label class="form-label" for="form6Example1">Old Password</label>
+
         <input type="password" id="form6Example1" class="form-control" name="oldpassword"/>
-        <label class="form-label" for="form6Example1">Old Password</label>
       </div>
       <div class="form-outline  mb-4">
+                <label class="form-label" for="form6Example2">New Password</label>
+
         <input type="password" id="form6Example2" class="form-control" name="newpassword" />
-        <label class="form-label" for="form6Example2">New Password</label>
       </div>
 
   <!-- Text input -->
   <div class="form-outline mb-4">
+        <label class="form-label" for="form6Example3">Confirm Password</label>
+
     <input type="password" id="form6Example3" class="form-control" name="password_confirmation" />
-    <label class="form-label" for="form6Example3">Confirm Password</label>
   </div>
 
 

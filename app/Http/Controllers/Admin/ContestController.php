@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Contest;
 use App\Models\Topic;
+use App\Models\ContestResult;
 use DB;
 use File;
 use Illuminate\Support\Str;
@@ -22,7 +23,7 @@ class ContestController extends Controller
     {
         //
              $contests=DB::table('contests')->join('topics','contests.topic_id','=','topics.id')->select('contests.*','topics.name as topic_name')->orderBy('id','desc')->get();
-
+             
          return view('backend.contest.index',compact('contests'));
 
     }
@@ -118,7 +119,6 @@ class ContestController extends Controller
     public function contestCodeSearch(Request $request){
         $seachCode=$request->contest_code;
         $results=Contest::where('code',$seachCode)->first();
-        dd($results);
 
     }
     public function show($id)
@@ -211,6 +211,13 @@ class ContestController extends Controller
 
 
       
+    }
+
+    public function contestSpecific($id){
+
+        $contestSpecific=DB::table('contest_results')->join('contests','contests.id','=','contest_results.contest_id')->join('users','users.id','=','contest_results.user_id')->select('users.name as user_name','contests.name as contest_name')->where('contest_id',$id)->get();
+
+     return view('backend.contest.specific-contestUser',compact('contestSpecific'));
     }
     
 }

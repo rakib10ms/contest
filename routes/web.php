@@ -45,6 +45,8 @@ Route::get('/dashboard', function () {
     Route::post('contest/update/{id}', '\App\Http\Controllers\Admin\ContestController@update')->name('contest.update');
     Route::get('contest/destroy/{id}', '\App\Http\Controllers\Admin\ContestController@destroy')->name('contest.destroy');
 
+    Route::get('contest/specificUsers/{id}', '\App\Http\Controllers\Admin\ContestController@contestSpecific')->name('contest.specificUsers');
+
 //contest_code seacrh
  Route::post('contest/codesearch', '\App\Http\Controllers\Admin\ContestController@contestCodeSearch')->name('contest.search');
 
@@ -79,3 +81,8 @@ Route::post('/updateContest-forms/{id}',  '\App\Http\Controllers\Frontend\Fronte
 Route::get('/my-contest',  '\App\Http\Controllers\Frontend\ProfileController@myContest')->name('my-contest');
 Route::get('/my-profile',  '\App\Http\Controllers\Frontend\ProfileController@myProfile')->name('my-profile');
 Route::post('/update-password/{id}',  '\App\Http\Controllers\Frontend\ProfileController@updatePassword')->name('update-password');
+Route::post('/userupdate-profile/{id}',  '\App\Http\Controllers\Frontend\ProfileController@updateProfile')->name('userupdate-profile');
+Route::get('/userprofile/view',  '\App\Http\Controllers\Frontend\ProfileController@profileView')->name('my-profileView');
+
+
+

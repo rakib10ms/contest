@@ -9,19 +9,13 @@ Homepage
 
 
   <!--Only Card-->
-<!--   <div class="container my-5">
+  <div class="container my-5">
     <div class="card mb-3 filter shadow-lg mx-auto pt-3 pb-3" style="padding: 0%; border: none; width: 100%;">
-      <div class="row g-0 py-4">
-        <div class="imgSec col-12 col-md-5 d-flex" style="position: relative; height: 30vh;">
-          <div class="imgHero my-auto" style="transform: translateX(10%); width: 100%; height: 100%">
-            <div class="stillCardImage h-100">
-              <h1 class=" text-dark"> Running Contest </h1>
-            </div>
-          </div>
-        </div>
+      <div class="row g-0 ">
+        
         <div class="col-12 col-md-7 py-3 px-md-1 px-1">
           <div class="card-body my-auto">
-            <h3 class="card-title">Card title</h5>
+            <h3 class="card-title">Running Contest</h3>
               <p class="card-text " style="margin-top: 2%;">This is a wider card with text
                 below as a natural lead-in to additional content. This content is a little bit
                 longer, wider card with text
@@ -36,16 +30,16 @@ Homepage
       </div>
     </div>
   </div>
- -->
 
 
 
 
+<!-- 
 <div class="container">
   <div class="row">
     <div class="col-md-12">
 
- <table class="table table-bordered bg-white my-5 ">
+ <table class="table table-bordered bg-light text-dark my-5 ">
   <thead>
     <tr>
       <th scope="col">#SL</th>
@@ -79,7 +73,7 @@ Homepage
 </div>
 </div>
 
-
+ -->
 
 
 @endsection

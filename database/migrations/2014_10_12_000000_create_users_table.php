@@ -20,7 +20,10 @@ class CreateUsersTable extends Migration
             $table->int('user_type')->default(0)->comment('1=admin,0=user');
             $table->int('status')->default(1)->comment('1=active,0=inactive');
             $table->string('phone');
+            $table->string('district');
             $table->string('address');
+            $table->string('address');
+            $table->string('image')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
