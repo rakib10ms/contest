@@ -9,6 +9,8 @@ use Auth;
 use Hash;
 use File;
 use Image;
+use Validator;
+
 
 class ProfileController extends Controller
 {
@@ -66,13 +68,14 @@ class ProfileController extends Controller
 
  
  public function updateProfile(Request $request,$id){
+
         $this->validate($request, [
  
         'name' => 'required',
         'phone' => 'required',
         'address' => 'required',
         'district' => 'required',
-        'image' => 'image',
+
         ]);
 
     $find=User::find($id);

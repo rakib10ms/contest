@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\ContestResult;
 use Auth;
 use DB;
+use File;
 use Carbon\Carbon;
 
 
@@ -25,6 +26,8 @@ class FrontendController extends Controller
 
     return view('frontend.index',compact('contests'));
     }
+
+
 
       public function contestDescription($id){
           
@@ -48,14 +51,14 @@ class FrontendController extends Controller
     public function contestForm($id){
 
       $contestId=Contest::find($id)->first();
-      // dd($contestId);
 
       $user=User::where('id',Auth::id())->first();
       return view('frontend.contest-form',compact('user','contestId'));
     }
 
 
-    public function contestFormSubmit(Request $request,$id){
+    public function contestStore(Request $request){
+        // dd($request->all());
 
          $request->validate([
 
@@ -67,13 +70,16 @@ class FrontendController extends Controller
         $user_id=Auth::id();
          
 
-          $check=ContestResult::where('user_id',$user_id)->where('contest_id',$contest_id)->exists();
-         if($check){
-      return redirect()->route('contest-forms')->with('status','You already Participated this contest');
-}
-  
+          $check=ContestResult::where('user_id',$user_id)->where('contest_id',$contest_id)->first();
+          if($check->exists()){
+
+            return redirect()->back()->with('status','You already Participated this contest');
+        }
+
+         
          else{
-            $contest=ContestResult::find($id);
+
+            $contest=New ContestResult();
       
         if($request->hasFile('file')){
             $file=$request->file('file');
@@ -94,10 +100,10 @@ class FrontendController extends Controller
         }        
 
          }
-         
+         }
 
   
 
   
 }
-}
+

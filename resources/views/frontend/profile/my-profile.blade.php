@@ -20,6 +20,20 @@ Homepage
   <div class="text-right py-3">
     <img src="" style="width:80px;border: 1px solid #c4c4c4; height: 80px;margin-top: -50px;object-fit: cover;" >
   </div>
+  @if(session()->has('status'))
+    <div class="alert alert-success">
+        {{ session()->get('status') }}
+    </div>
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
       <div class="form-outline  mb-4">
                 <label class="form-label" for="form6Example1">Name</label>
 
@@ -36,7 +50,7 @@ Homepage
     <div class="form-outline mb-4">
         <label class="form-label" for="form6Example3">Profile Image</label>
 
-    <input type="file" id="form6Example3" class="form-control" name="image" />
+    <input type="file" id="form6Example3" class="form-control" name="image" value="" />
   </div> 
   <div class="form-outline mb-4">
         <label class="form-label" for="form6Example3">Phone</label>

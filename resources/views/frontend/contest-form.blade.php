@@ -7,18 +7,39 @@ Homepage
 @section('section')
 <div class="container">
 	<div class="row">
-		<div class="col-md-10 mt-5">
-        <div class="row justify-content-center ">
+
+
+		<div class="col-md-10 mt-5 card-body ">
+             @if(Session('status'))
+                      <div class="form-group col-sm-4 col-md-8">
+                      <div class="alert alert-danger" role="alert">
+                               {{ Session('status') }}
+                          </div>
+                      </div>
+                      @endif
+
+
+                      @if($errors->any())
+                      @foreach($errors->all() as $error)
+                      <div class="form-group col-sm-4 col-md-8">
+                      <div class="alert alert-danger" role="alert">
+                               {{ $error }}
+                          </div>
+                      </div>
+                      @endforeach
+                      @endif
+
+         <div class="row justify-content-center ">
           <div class="col-md-8">
             <span class="anchor" id="formContact"></span>
             <!-- form contact -->
             <div class="card card-outline-secondary " style="background: #c1c1c1; color: black;">
               <div class="card-header">
-                <h3 class="mb-0">Contact</h3>
+                <h3 class="mb-0">Add Form</h3>
               </div>
               <div class="card-body">
-
-                <form autocomplete="off" class="form" role="form" method="POST" enctype="multipart/form-data" action="{{route('contest-forms',$contestId->id)}}">
+            
+                <form autocomplete="off" class="form" role="form" method="POST" enctype="multipart/form-data" action="{{route('contest-store')}}">
                 	@csrf
 
                   <input type="hidden" name="contest_id" value="{{$contestId->id}}">

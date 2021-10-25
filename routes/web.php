@@ -75,7 +75,7 @@ Route::get('/',  '\App\Http\Controllers\Frontend\FrontendController@index')->nam
 Route::get('/past-contest',  '\App\Http\Controllers\Frontend\FrontendController@pastContest')->name('past-contest');
 Route::get('/contest-desc/{id}',  '\App\Http\Controllers\Frontend\FrontendController@contestDescription')->name('contest-desc');
 Route::get('/contest-form/{id}',  '\App\Http\Controllers\Frontend\FrontendController@contestForm')->name('contest-form')->middleware('auth');
-Route::post('/updateContest-forms/{id}',  '\App\Http\Controllers\Frontend\FrontendController@contestFormSubmit')->name('contest-forms')->middleware('auth');
+Route::post('/contest/store',  '\App\Http\Controllers\Frontend\FrontendController@contestStore')->name('contest-store')->middleware('auth');
 
 
 Route::get('/my-contest',  '\App\Http\Controllers\Frontend\ProfileController@myContest')->name('my-contest');
