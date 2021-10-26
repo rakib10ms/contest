@@ -31,8 +31,11 @@ class ContestWinnerController extends Controller
 
         $contest_id=$request->input('contest_id');
         $user_id=$request->input('user_id');
+        // // dd($user_id);
+        // dd($contest_id);
 
           $check=ContestWinner::where('user_id',$user_id)->where('contest_id',$contest_id)->exists();
+          // dd($check);
          if($check){
       return redirect()->route('contest.result')->with('status','You already Added this user to this Winner Contest');
 }
@@ -44,7 +47,7 @@ class ContestWinnerController extends Controller
           $contestWinner->user_id=$request->input('user_id');
           $contestWinner->message=$request->input('message');
           $contestWinner->save();
-        return redirect()->route('backend.contest-winner.index')->with('status','Winner added successfully');
+        return redirect()->route('all-winner')->with('status','Winner added successfully');
 
 
     }

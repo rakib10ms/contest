@@ -26,14 +26,13 @@ Homepage
       <a href="" class="badge badge-info p-2"><i class="fas fa-calendar-times fa-2x px-2"></i>{{$contest->end_date}}</a>             
 
        </p>
-              <a href="{{route('contest-desc',$contest->id)}}" class="btn btn-primary my-3">Full Bio</a>
             </div><!-- card-body -->
           </div><!-- card -->
         
    
         </div>
        </div>
-            @endforeach
+        @endforeach
 
     </div>
 </div>

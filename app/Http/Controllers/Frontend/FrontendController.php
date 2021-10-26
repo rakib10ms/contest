@@ -50,7 +50,8 @@ class FrontendController extends Controller
 
     public function contestForm($id){
 
-      $contestId=Contest::find($id)->first();
+      $contestId=Contest::where('id',$id)->first();
+
 
       $user=User::where('id',Auth::id())->first();
       return view('frontend.contest-form',compact('user','contestId'));
@@ -68,10 +69,13 @@ class FrontendController extends Controller
        
         $contest_id=$request->input('contest_id');
         $user_id=Auth::id();
-         
+        
+          $check = DB::table('contest_results')             
+              ->where('contest_results.user_id', '=', $user_id)
+              ->where('contest_results.contest_id', '=', $contest_id)
+              ->first();
 
-          $check=ContestResult::where('user_id',$user_id)->where('contest_id',$contest_id)->first();
-          if($check->exists()){
+          if($check){
 
             return redirect()->back()->with('status','You already Participated this contest');
         }
@@ -95,7 +99,7 @@ class FrontendController extends Controller
        
         
         $contest->save();
-         return redirect()->route('contest-form')->with('status','Form Submiited successfully');
+         return redirect()->back()->with('status','Form Submiited successfully');
 
         }        
 

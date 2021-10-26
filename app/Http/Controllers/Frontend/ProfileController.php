@@ -10,12 +10,35 @@ use Hash;
 use File;
 use Image;
 use Validator;
+use DB;
+use Carbon\Carbon;
 
 
 class ProfileController extends Controller
 {
     public function myContest(){
-       return view('frontend.profile.my-contest');
+
+        $runningAttendent=DB::table('contest_results')->join('contests','contest_results.contest_id','=','contests.id')
+->where('user_id',Auth::id())->where('contests.end_date','>=',Carbon::now())->get();
+
+
+
+$userConresult=DB::table('contest_winners')->join('users','users.id','=','contest_winners.user_id')
+->join('contests','contests.id','=','contest_winners.contest_id')
+->select('users.*','contests.name as contest_name','contests.code as contest_code','contest_winners.*')
+->where('contest_winners.user_id',Auth::id())->get();
+
+// dd($userConresult);
+
+
+
+
+        $prevAttendContest=DB::table('contest_results')->join('contests','contest_results.contest_id','=','contests.id')
+->where('user_id',Auth::id())->where('contests.end_date','<=',Carbon::now())->get();
+
+
+       return view('frontend.profile.my-contest',compact('runningAttendent','userConresult',
+        'prevAttendContest'));
     } 
 
     public function myProfile(){
@@ -68,6 +91,7 @@ class ProfileController extends Controller
 
  
  public function updateProfile(Request $request,$id){
+    // dd($request->all());
 
         $this->validate($request, [
  
@@ -84,7 +108,7 @@ class ProfileController extends Controller
             $file=$request->file('image');
             $ext=$file->getClientOriginalName();
             $filename=time().'.'.$ext;
-            $file->move(public_path('assets/uploads/user/'),$filename);
+            $file->move(public_path('assets/uploads/users/'),$filename);
             $find->image=$filename;
 
     $find->name=$request->get('name');

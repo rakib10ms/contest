@@ -29,7 +29,7 @@ Homepage
     <tr>
       <th scope="row">1</th>
      
-      <td><img src="{{asset('assets/uploads/user/'.$myInfo->image)}} " style="width:80px; height: 80px; object-fit: cover;" /></td>
+      <td><img src="{{asset('assets/uploads/users/'.$myInfo->image)}} " style="width:80px; height: 80px; object-fit: cover;" /></td>
       <td>{{$myInfo->name}}</td>
       <td>{{$myInfo->email}}</td>
       <td>{{$myInfo->phone}}</td>

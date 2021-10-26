@@ -215,9 +215,15 @@ class ContestController extends Controller
 
     public function contestSpecific($id){
 
-        $contestSpecific=DB::table('contest_results')->join('contests','contests.id','=','contest_results.contest_id')->join('users','users.id','=','contest_results.user_id')->select('users.name as user_name','contests.name as contest_name')->where('contest_id',$id)->get();
-
+         $contestSpecific=DB::table('contest_results')->join('users','users.id','=','contest_results.user_id')->join('contests','contests.id','=','contest_results.contest_id')->select('contest_results.*','users.name as user_name','contests.name as contest_name','users.email')->where('contest_id',$id)->get();
+         // dd($contestSpecific);
      return view('backend.contest.specific-contestUser',compact('contestSpecific'));
     }
+
+       
+
+    
+
+    
     
 }

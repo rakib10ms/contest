@@ -3,32 +3,53 @@
 
 
 <div class="header d-flex justify-content-between">
-<h1> THIS CONTEST PARTICIPANTS  </h1>
-</div>
-
-
-
+<h1> CONTEST PARTICIPATES  </h1>
 @include('message.message')
 
+<a href="{{route('contest.create')}}" class="btn btn-primary ">CONTEST PARTICIPATES </a>
+</div>
 
 <table class="table table-bordered" id="example">
   <thead>
     <tr>
       <th scope="col">#SL</th>
-      <th scope="col">Contest Name</th>
+
+         <th scope="col">Contest Name</th>
       <th scope="col">User Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">File</th>
+      <th scope="col">Notes</th>
+      <th scope="col">Submission Time</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
 
 
-@foreach($contestSpecific as $key => $contest)
+@foreach( $contestSpecific as $key => $contest)
 
     <tr>
       <th scope="row">{{$key+1}}</th>
       <td>{{$contest->contest_name}}</td>
       <td>{{$contest->user_name}}</td>
-        
+      <td>{{$contest->email}}</td>
+      <td>{{$contest->file}}</td>
+    
+      <td>{{$contest->notes}}</td>
+      <td>{{$contest->updated_at}}</td>
+     
+        <td>
+     <a href="{{route('contest.select',$contest->id)}}" class="btn btn-success"> <i class="fa fa-trophy mx-2" aria-hidden="true"></i> Select Winner  </a>
+     <!-- Button trigger modal -->
+      <a href="" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+        DELETE
+      </a>
+
+ 
+
+      </td>
+      
+      
     </tr>
   @endforeach
 

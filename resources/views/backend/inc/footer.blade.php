@@ -34,11 +34,9 @@
     <script src="{{asset('Backend/js/map.shiftworker.js')}}"></script>
     <script src="{{asset('Backend/js/ResizeSensor.js')}}"></script>
     <script src="{{asset('Backend/js/dashboard.js')}}"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"> </script>
    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"> </script>
   <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"> </script>
-  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-
+  
     <script>
       $(function(){
         'use strict'
