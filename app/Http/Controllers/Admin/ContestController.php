@@ -23,6 +23,7 @@ class ContestController extends Controller
     {
         //
              $contests=DB::table('contests')->join('topics','contests.topic_id','=','topics.id')->select('contests.*','topics.name as topic_name')->orderBy('id','desc')->get();
+
              
          return view('backend.contest.index',compact('contests'));
 
@@ -118,7 +119,8 @@ class ContestController extends Controller
 
     public function contestCodeSearch(Request $request){
         $seachCode=$request->contest_code;
-        $results=Contest::where('code',$seachCode)->first();
+        $contest=Contest::where('code',$seachCode)->first();
+        return view('backend.contest.contestSearch',compact('contest'));
 
     }
     public function show($id)

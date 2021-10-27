@@ -53,6 +53,8 @@ Route::get('/dashboard', function () {
 
     //contest result
      Route::get('contest/result', '\App\Http\Controllers\Admin\ContestResultController@contestResult')->name('contest.result');
+         //contest result edit
+       Route::get('contestSelection/edit/{id}', '\App\Http\Controllers\Admin\ContestResultController@contestResultEdit')->name('contest.selectEdit');
 
      //contest selection
      Route::get('contest/selection/{id}', '\App\Http\Controllers\Admin\ContestWinnerController@contestSelection')->name('contest.select');

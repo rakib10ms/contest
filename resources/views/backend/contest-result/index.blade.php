@@ -41,8 +41,8 @@
         <td>
      <a href="{{route('contest.select',$contest->id)}}" class="btn btn-success"> <i class="fa fa-trophy mx-2" aria-hidden="true"></i> Select Winner  </a>
      <!-- Button trigger modal -->
-      <a href="" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-        DELETE
+      <a href="{{route('contest.selectEdit',$contest->id)}}"  class="btn btn-info" >
+        EDIT
       </a>
 
  

@@ -96,7 +96,7 @@ $userConresult=DB::table('contest_winners')->join('users','users.id','=','contes
         $this->validate($request, [
  
         'name' => 'required',
-        'phone' => 'required',
+        'phone' => ['required', 'max:14'],
         'address' => 'required',
         'district' => 'required',
 

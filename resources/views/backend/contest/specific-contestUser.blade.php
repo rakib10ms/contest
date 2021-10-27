@@ -6,7 +6,6 @@
 <h1> CONTEST PARTICIPATES  </h1>
 @include('message.message')
 
-<a href="{{route('contest.create')}}" class="btn btn-primary ">CONTEST PARTICIPATES </a>
 </div>
 
 <table class="table table-bordered" id="example">
@@ -40,10 +39,7 @@
      
         <td>
      <a href="{{route('contest.select',$contest->id)}}" class="btn btn-success"> <i class="fa fa-trophy mx-2" aria-hidden="true"></i> Select Winner  </a>
-     <!-- Button trigger modal -->
-      <a href="" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-        DELETE
-      </a>
+
 
  
 
