@@ -27,7 +27,15 @@ Homepage
       <a href="" class="badge badge-info p-2"><i class="fas fa-calendar-check fa-2x px-2"></i>{{$contestDescription->end_date}}</a>             
 
        </p>
-              <a href="{{url('/contest-form',$contestDescription->id)}}" class="btn btn-primary my-3 d-block">Participate Contest</a>
+      
+    
+               @if($check->exists())
+               
+               @else
+             <a href="{{url('/contest-form',$contestDescription->id)}}" class="btn btn-primary my-3 d-block">Participate Contest</a>
+                     
+             @endif
+         
             </div><!-- card-body -->
           </div><!-- card -->
         

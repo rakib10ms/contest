@@ -32,9 +32,16 @@ class FrontendController extends Controller
       public function contestDescription($id){
           
       $contestDescription=Contest::where('id',$id)->first();
+               
+               $userId=Auth::id();
+               $contestId=$id;
+               // dd($contestId);
+               $check=DB::table('contest_results')->where('contest_results.contest_id',$contestId)
+               ->where('contest_results.user_id',  $userId);
 
+              
 
-    return view('frontend.contest_desc',compact('contestDescription'));
+    return view('frontend.contest_desc',compact('contestDescription','check'));
     }
 
 
@@ -50,7 +57,10 @@ class FrontendController extends Controller
 
     public function contestForm($id){
 
-      $contestId=Contest::where('id',$id)->first();
+      $contestId=DB::table('contests')->where('contests.id',$id)
+                ->first();    
+
+      // dd($contestId);
 
 
       $user=User::where('id',Auth::id())->first();
@@ -59,8 +69,7 @@ class FrontendController extends Controller
 
 
     public function contestStore(Request $request){
-        // dd($request->all());
-
+     // dd($request->all());
          $request->validate([
 
             'file' => 'required|max:5000',
@@ -68,12 +77,15 @@ class FrontendController extends Controller
 
        
         $contest_id=$request->input('contest_id');
+        $topic_id=$request->input('topic_id');
         $user_id=Auth::id();
         
           $check = DB::table('contest_results')             
               ->where('contest_results.user_id', '=', $user_id)
               ->where('contest_results.contest_id', '=', $contest_id)
+              ->where('contest_results.topic_id', '=', $topic_id)
               ->first();
+
 
           if($check){
 
@@ -94,6 +106,8 @@ class FrontendController extends Controller
 
 
         $contest->contest_id=$request->input('contest_id');
+        $contest->topic_id=$request->input('topic_id');
+
         $contest->user_id=Auth::id();
         $contest->notes=$request->input('notes');
        

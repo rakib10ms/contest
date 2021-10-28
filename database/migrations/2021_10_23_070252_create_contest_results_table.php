@@ -16,6 +16,7 @@ class CreateContestResultsTable extends Migration
         Schema::create('contest_results', function (Blueprint $table) {
             $table->id();
             $table->integer('contest_id');
+            $table->integer('topic_id');
             $table->integer('user_id');
             $table->string('file');
             $table->longText('notes')->nullable();

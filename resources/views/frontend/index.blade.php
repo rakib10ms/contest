@@ -6,22 +6,11 @@ Homepage
 
 @section('section')
 
-<!--The html below this line is for display purpose only-->
 
-<!-- <div class="py-5 text-center text-white bg-primary">
-<div class="container py-5">
-<div class="row py-5">
-<div class="mx-auto col-lg-10">
-  <h1 class="display-4 mb-4 ">This is a beautiful Bootstrap 4 Navbar with Social Media Icons </h1>
-  <p class="lead mb-5">There is nothing more rare, nor more beautiful, than a woman being unapologetically herself; comfortable in her perfect imperfection. To me, that is the true essence of beauty.  </p> <a href="#" class="btn btn-lg btn-outline-light mx-1">Take me there</a> 
-</div>
-</div>
-</div>
-</div> -->
 
 
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner" style="width:100%;height:90vh;">
+  <div class="carousel-inner" style="width:100%;height:60vh;">
     <div class="carousel-item active">
       <img class="d-block w-100 " src="https://cdn.pixabay.com/photo/2020/05/31/20/06/cyber-5244032_960_720.png" alt="First slide">
     </div>

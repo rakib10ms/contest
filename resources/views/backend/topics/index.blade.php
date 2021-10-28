@@ -3,9 +3,9 @@
 
 
 <div class="header d-flex justify-content-between">
-<h1> All TOPICS  </h1>
+<h1> All TOPICS CATEGORY </h1>
 
-<a href="{{route('topic.create')}}" class="btn btn-primary ">ADD TOPICS</a>
+<a href="{{route('topic.create')}}" class="btn btn-primary ">ADD TOPICS CATEGORY</a>
 </div>
 
 <table class="table table-bordered" id="example">
@@ -58,8 +58,8 @@
             </div>
          
             <div class="modal-footer">
-              <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-              <a href="{{route('topic.destroy',$topic->id)}}" class="btn btn-primary">Save changes</a>
+              <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+              <a href="{{route('topic.destroy',$topic->id)}}" class="btn btn-danger">Confirm</a>
             </div>
           </div>
         </div>

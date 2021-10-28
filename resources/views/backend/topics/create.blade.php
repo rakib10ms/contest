@@ -1,7 +1,7 @@
 @extends('backend.master')
 @section('section')
 
-<h1> ADD TOPICS</h1>
+<h1> ADD TOPICS CATEGORY</h1>
 @include('message.message')
 
 	<form action="{{route('topic.store')}}" method="POST">

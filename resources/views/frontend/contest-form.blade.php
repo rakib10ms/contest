@@ -43,6 +43,7 @@ Homepage
                 	@csrf
 
                   <input type="hidden" name="contest_id" value="{{$contestId->id}}">
+                  <input type="hidden" name="topic_id" value="{{$contestId->topic_id}}">
                   <fieldset>
                     <label class="mb-0" for="name2">Name</label>
                     <div class="row mb-1">

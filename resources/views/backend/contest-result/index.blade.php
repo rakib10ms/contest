@@ -3,10 +3,9 @@
 
 
 <div class="header d-flex justify-content-between">
-<h1> CONTEST PARTICIPATES  </h1>
+<h1> ALL CONTEST PARTICIPANTS  </h1>
 @include('message.message')
 
-<a href="{{route('contest.create')}}" class="btn btn-primary ">CONTEST PARTICIPATES </a>
 </div>
 
 <table class="table table-bordered" id="example">
@@ -14,6 +13,7 @@
     <tr>
       <th scope="col">#SL</th>
 
+         <th scope="col">Topic Name</th>
          <th scope="col">Contest Name</th>
       <th scope="col">User Name</th>
       <th scope="col">Email</th>
@@ -30,6 +30,7 @@
 
     <tr>
       <th scope="row">{{$key+1}}</th>
+      <td>{{$contest->topic_name}}</td>
       <td>{{$contest->contest_name}}</td>
       <td>{{$contest->user_name}}</td>
       <td>{{$contest->email}}</td>
@@ -41,9 +42,7 @@
         <td>
      <a href="{{route('contest.select',$contest->id)}}" class="btn btn-success"> <i class="fa fa-trophy mx-2" aria-hidden="true"></i> Select Winner  </a>
      <!-- Button trigger modal -->
-      <a href="{{route('contest.selectEdit',$contest->id)}}"  class="btn btn-info" >
-        EDIT
-      </a>
+    
 
  
 

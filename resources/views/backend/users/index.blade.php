@@ -11,10 +11,13 @@
   <thead>
     <tr>
       <th scope="col">#SL</th>
-      <th scope="col">User Email</th>
-      <th scope="col">User Phone</th>
-      <th scope="col">User Address</th>
-      <th scope="col">User Status</th>
+      <th scope="col"> Image</th>
+      <th scope="col"> Name</th>
+      <th scope="col"> Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">District</th>
+      <th scope="col"> Address</th>
+      <th scope="col"> Status</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -29,8 +32,11 @@
     @foreach($allUsers as $key => $user)
     <tr>
       <th scope="row">{{$key+1}}</th>
+      <td><img src="{{asset('assets/uploads/users/'.$user->image)}}" style="width:80px;height: 80px;object-fit: cover;" /></td>
+      <td>{{$user->name}}</td>
       <td>{{$user->email}}</td>
       <td>{{$user->phone}}</td>
+      <td>{{$user->district}}</td>
       <td>{{$user->address}}</td>
       <td>
       @if( $user->status==1)

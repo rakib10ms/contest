@@ -11,6 +11,11 @@ class allUserController extends Controller
     public function index(){
         $allUsers=User::where('user_type','!=','1')->get();
         return view('backend.users.index',compact('allUsers'));
+//         $from = 1;
+//         $to = 100000;
+
+//    $user=User::whereBetween('id', [$from, $to])->get();
+// dd($user);
 
   }
    public function changeStatus($id)
@@ -33,4 +38,5 @@ class allUserController extends Controller
         return redirect()->route('allUser')->with('status','status updated successfully');
   
     }
+
 }

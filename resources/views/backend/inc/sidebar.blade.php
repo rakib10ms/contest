@@ -12,7 +12,7 @@
            <li class="br-menu-item mt-2">
           <a href="#" class="br-menu-link with-sub">
             <i class="fa fa-users"></i>
-            <span class="menu-item-label">All Users</span>
+            <span class="menu-item-label">All USERS</span>
           </a><!-- br-menu-link -->
           <ul class="br-menu-sub">
             <li class="sub-item"><a href="{{route('allUser')}}" class="sub-link">All Users</a></li>
@@ -23,10 +23,10 @@
         <li class="br-menu-item mt-2">
           <a href="#" class="br-menu-link with-sub">
             <i class="fa fa-list-alt"></i>
-            <span class="menu-item-label">TOPICS CATEGORY</span>
+            <span class="menu-item-label">ALL TOPICS CATEGORY</span>
           </a><!-- br-menu-link -->
           <ul class="br-menu-sub">
-            <li class="sub-item"><a href="{{route('topic.index')}}" class="sub-link">All Topics</a></li>
+            <li class="sub-item"><a href="{{route('topic.index')}}" class="sub-link">All Topics Category</a></li>
     
           </ul>
         </li>

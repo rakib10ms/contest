@@ -10,7 +10,7 @@ Homepage
 
   <!--Only Card-->
   <div class="container my-5">
-    <div class="card mb-3 filter shadow-lg  pb-3" style="padding: 0%; border: none; width: 60%;">
+    <div class="card mb-3 filter shadow-lg  pb-3" style="padding: 0%; border: none; width: 100%;">
       <div class="row g-0 ">
         
         <div class="col-12 col-md-12 ">
@@ -52,12 +52,12 @@ Homepage
 
 
  <div class="container my-5">
-    <div class="card mb-3 filter shadow-lg  pb-3" style="padding: 0%; border: none; width: 80%;">
+    <div class="card mb-3 filter shadow-lg  pb-3" style="padding: 0%; border: none; width: 100%;">
       <div class="row g-0 ">
         
         <div class="col-12 col-md-12 ">
           <div class="card-body">
-            <h3 class="card-title">Contest Winning Result</h3>
+            <h3 class="card-title">MY Contest Winning Result</h3>
             <table class="table">
               <thead>
                 <tr>
@@ -100,7 +100,7 @@ Homepage
 
 
   <div class="container my-5">
-    <div class="card mb-3 filter shadow-lg  pb-3" style="padding: 0%; border: none; width: 60%;">
+    <div class="card mb-3 filter shadow-lg  pb-3" style="padding: 0%; border: none; width: 100%;">
       <div class="row g-0 ">
         
         <div class="col-12 col-md-12 ">

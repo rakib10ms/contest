@@ -11,7 +11,14 @@ use DB;
 class ContestResultController extends Controller
 {
     public function contestResult(){
-        $contestResult=DB::table('contest_results')->join('users','users.id','=','contest_results.user_id')->join('contests','contests.id','=','contest_results.contest_id')->select('contest_results.*','users.name as user_name','contests.name as contest_name','users.email')->orderBy('id','desc')->get();
+        $contestResult=DB::table('contest_results')->join('users','users.id','=','contest_results.user_id')->join('contests','contests.id','=','contest_results.contest_id')->join('topics','topics.id','=','contest_results.topic_id')->select('contest_results.*','users.name as user_name','contests.name as contest_name','users.email','topics.name as topic_name')->get();    
+
+
+    
+
+        // dd($contestResult);
+
+   
         return view('backend.contest-result.index',compact('contestResult'));
     }
 

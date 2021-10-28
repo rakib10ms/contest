@@ -36,6 +36,7 @@
     <script src="{{asset('Backend/js/dashboard.js')}}"></script>
    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"> </script>
   <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"> </script>
+
   
     <script>
       $(function(){
@@ -71,11 +72,4 @@
       responsive: true,
       
     });
-    </script>
-<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
-<script>
-    CKEDITOR.replace('my-editor',
-  {
-    customConfig: '/custom/ckeditor_config.js'
-});
     </script>

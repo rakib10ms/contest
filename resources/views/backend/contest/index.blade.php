@@ -68,10 +68,10 @@
      <a href="{{route('contest.edit',$contest->id)}}" class="btn btn-success">EDIT  </a>
      <a href="{{route('contest.specificUsers',$contest->id)}}" class="btn btn-info">All Users  </a>
      <!-- Button trigger modal -->
-      <a href="{{route('contest.destroy',$contest->id)}}" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$contest->id}}">
+  <!--     <a href="{{route('contest.destroy',$contest->id)}}" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$contest->id}}">
         DELETE
       </a>
-
+ -->
       <!-- Modal -->
       <div class="modal fade" id="exampleModal{{$contest->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
