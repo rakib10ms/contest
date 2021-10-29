@@ -34,8 +34,13 @@
     <script src="{{asset('Backend/js/map.shiftworker.js')}}"></script>
     <script src="{{asset('Backend/js/ResizeSensor.js')}}"></script>
     <script src="{{asset('Backend/js/dashboard.js')}}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+
+
    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"> </script>
   <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"> </script>
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+
 
   
     <script>
@@ -73,3 +78,7 @@
       
     });
     </script>
+    
+    <script>
+     CKEDITOR.replace( 'editor1' );
+</script>

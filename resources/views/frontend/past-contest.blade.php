@@ -26,6 +26,8 @@ Homepage
       <a href="" class="badge badge-info p-2"><i class="fas fa-calendar-times fa-2x px-2"></i>{{$contest->end_date}}</a>             
 
        </p>
+
+       <a href="{{url('/past-contestWinner/'.$contest->id)}}" class="btn btn-success text-white btn-block mt-2 "><i class="fa fa-trophy fa-2x"> </i><b>Winner Lists </b> </a>
             </div><!-- card-body -->
           </div><!-- card -->
         

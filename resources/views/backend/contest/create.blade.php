@@ -1,10 +1,11 @@
+
 @extends('backend.master')
 @section('section')
 
 <h1> ADD CONTEST</h1>
 @include('message.message')
 
-	<form action="{{route('contest.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('contest.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="row">
       <div class="col-md-12">
@@ -45,14 +46,14 @@
   
     <div class="form-group col-md-10">
    <label for="startdate">Start Date *</label>
-     <input type="date" class="form-control" id="startdate" placeholder="Start Date"  name="start_date" >
+     <input type="date"  id="datepicker" placeholder="Start Date"  name="start_date"  class="form-control datepicker" autocomplete="off">
 
     </div>
 
  
     <div class="form-group col-md-10">
    <label for="enddate">End  Date *</label>
-     <input type="date" class="form-control" id="enddate" placeholder="End  Date"  name="end_date"  >
+     <input type="date"  class="form-control datepicker" autocomplete="off" id="enddate" placeholder="End  Date"  name="end_date"  >
 
     </div>
 
@@ -67,6 +68,9 @@
     </div>
 
 
+ 
+
+
  <div class="form-group">
   <button type="submit" class="btn btn-primary">Submit</button>
 </div>
@@ -77,8 +81,16 @@
 </form>
 
 
-
-
-
-
 @endsection
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#my-editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
+
+
+

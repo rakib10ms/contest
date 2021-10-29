@@ -23,10 +23,10 @@ class ProfileController extends Controller
 
 
 
-$userConresult=DB::table('contest_winners')->join('users','users.id','=','contest_winners.user_id')
-->join('contests','contests.id','=','contest_winners.contest_id')
-->select('users.*','contests.name as contest_name','contests.code as contest_code','contest_winners.*')
-->where('contest_winners.user_id',Auth::id())->get();
+    $userConresult=DB::table('contest_winners')->join('users','users.id','=','contest_winners.user_id')
+    ->join('contests','contests.id','=','contest_winners.contest_id')
+    ->select('users.*','contests.name as contest_name','contests.code as contest_code','contest_winners.*')
+    ->where('contest_winners.user_id',Auth::id())->get();
 
 // dd($userConresult);
 

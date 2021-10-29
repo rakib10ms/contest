@@ -20,12 +20,22 @@
     <script src="{{asset('Backend/js/map.shiftworker.js')}}"></script>
     <script src="{{asset('Backend/js/ResizeSensor.js')}}"></script>
     <script src="{{asset('Backend/js/dashboard.js')}}"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"> </script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"> </script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <script>
+        var today, datepicker;
+        today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+        datepicker = $('#datepicker').datepicker({
+            minDate: today,
+            format: 'yyyy-mm-dd'
+        });
+    </script>
+
+     <script>
       $(function(){
         'use strict'
 
@@ -53,4 +63,5 @@
         }
       });
     </script>
+
 

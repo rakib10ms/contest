@@ -64,7 +64,9 @@ Route::get('/dashboard', function () {
     Route::get('all/winner', '\App\Http\Controllers\Admin\ContestWinnerController@allWinner')->name('all-winner');
 
 });
+
 Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -85,6 +87,11 @@ Route::get('/my-profile',  '\App\Http\Controllers\Frontend\ProfileController@myP
 Route::post('/update-password/{id}',  '\App\Http\Controllers\Frontend\ProfileController@updatePassword')->name('update-password');
 Route::post('/userupdate-profile/{id}',  '\App\Http\Controllers\Frontend\ProfileController@updateProfile')->name('userupdate-profile');
 Route::get('/userprofile/view',  '\App\Http\Controllers\Frontend\ProfileController@profileView')->name('my-profileView');
+
+
+Route::get('/all-runningContest/{id}',  '\App\Http\Controllers\Frontend\FrontendController@runningContest')->name('all-runningContest');
+Route::get('/past-contestWinner/{id}',  '\App\Http\Controllers\Frontend\FrontendController@pastContestWinner')->name('past-contestWinner');
+Route::get('/contestform-edit/{id}',  '\App\Http\Controllers\Frontend\FrontendController@contestformEdit')->name('contestform-edit');
 
 
 

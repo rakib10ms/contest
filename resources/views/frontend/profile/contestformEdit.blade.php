@@ -35,26 +35,26 @@ Homepage
             <!-- form contact -->
             <div class="card card-outline-secondary " style="background: #c1c1c1; color: black;">
               <div class="card-header">
-                <h3 class="mb-0">Add Form</h3>
+                <h3 class="mb-0">Edit Form</h3>
               </div>
               <div class="card-body">
             
                 <form autocomplete="off" class="form" role="form" method="POST" enctype="multipart/form-data" action="{{route('contest-store')}}">
                 	@csrf
 
-                  <input type="hidden" name="contest_id" value="{{$contestId->id}}">
-                  <input type="hidden" name="topic_id" value="{{$contestId->topic_id}}">
+                  <input type="hidden" name="contest_id" value="{{$contestformEdit->id}}">
+                  <input type="hidden" name="topic_id" value="{{$contestformEdit->topic_id}}">
                   <fieldset>
                     <label class="mb-0" for="name2">Name</label>
                     <div class="row mb-1">
                       <div class="col-lg-12">
-                        <input class="form-control" id="name2" name="name2" readonly type="text" value="{{$user->name}}">
+                        <input class="form-control" id="name2" name="name2" readonly type="text" value="">
                       </div>
                     </div>
 										<label class="mb-0" for="email2">Email</label>
                     <div class="row mb-1">
                       <div class="col-lg-12">
-                        <input class="form-control" id="email2" name="email2" readonly value="{{$user->email}}" type="text">
+                        <input class="form-control" id="email2" name="email2" readonly value="" type="text">
                       </div>
                     </div>
 							<label class="mb-0" for="file">File</label>

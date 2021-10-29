@@ -34,7 +34,12 @@
       <td>{{$contest->contest_name}}</td>
       <td>{{$contest->user_name}}</td>
       <td>{{$contest->email}}</td>
-      <td>{{$contest->file}}</td>
+      <td>{{$contest->file}}
+        <div>
+          <a href=""><i class="fa fa-eye fa-3x badge badge-success"> </i> </a>
+          <i class="fa fa-download  fa-3x badge badge-warning"> </i>
+        </div>
+      </td>
     
       <td>{{$contest->notes}}</td>
       <td>{{$contest->updated_at}}</td>

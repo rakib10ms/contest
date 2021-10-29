@@ -17,6 +17,15 @@ class ContestResultController extends Controller
     
 
         // dd($contestResult);
+        $from = 15;
+        $to = 16;
+
+        $idstart=1;
+        $idend=10;
+
+
+  $check=ContestWinner::whereBetween('contest_id', [$from, $to])->whereBetween('id', [$idstart,  $idend])->exists();
+  // dd($check);
 
    
         return view('backend.contest-result.index',compact('contestResult'));

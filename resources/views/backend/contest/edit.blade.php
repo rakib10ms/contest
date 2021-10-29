@@ -28,8 +28,7 @@
 
     <div class="form-group  col-md-10">
     <label for="exampleFormControlTextarea1">Description *</label>
-    <textarea class="form-control" id="my-editor" rows="5"  name="description" >
-        {{$editContest->description}}
+    <textarea class="form-control" id="editor1" rows="5"  name="description">{{$editContest->description}}
     </textarea>
  
   </div>
@@ -82,7 +81,5 @@
 
 
 
-
-
-
 @endsection
+

@@ -22,7 +22,9 @@ Homepage
                   <th scope="col">#SL</th>
                   <th scope="col">Contest Code</th>
                   <th scope="col">Contest Name</th>
+                  <th scope="col">Your File</th>
                   <th scope="col">Last Date</th>
+                  <th scope="col">Edit</th>
                 </tr>
               </thead>
               <tbody>
@@ -31,7 +33,9 @@ Homepage
                   <th scope="row">{{$key+1}}</th>
                   <td>{{$contest->code}}</td>
                   <td>{{$contest->name}}</td>
+                  <td><img src="{{asset('assets/uploads/contest-result/'.$contest->image)}}"/></td>
                   <td> <span class="bage badge-info">{{$contest->end_date}} </span></td>
+                  <td> <a href="{{route('contestform-edit',$contest->id)}}" class="btn btn-info"><i class="fa fa-edit"> </i> Edit </a>
                 </tr>
                 @endforeach
 
