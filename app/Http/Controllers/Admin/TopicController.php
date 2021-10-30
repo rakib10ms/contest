@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Topic;
+use App\Models\Contest;
 use DB;
 
 class TopicController extends Controller
@@ -108,8 +109,15 @@ class TopicController extends Controller
     public function destroy($id)
     {
        $topic =Topic::find($id);
+       $check=Contest::where('topic_id',$topic->id)->exists();
+       if($check){
+        return redirect()->route('topic.index')->with('status','You cannot delete this topic Category. To delete this topic category, you have to shift the contests of this topic to another topic.');
+       }
+       else{
        $topic->delete();
-   return redirect()->route('topic.index');
+    return redirect()->route('topic.index')->with('status','Topic Category deleted successfully');
+
+       }
 
     }
 }

@@ -21,9 +21,28 @@ class ContestWinnerController extends Controller
                       ->select('contest_results.*','users.name as user_name','contests.name as contest_name','users.email')
                       ->where('contest_results.id',$id)
                        ->first();
- // dd($specific);
-        return view('backend.contest-winner.create',compact('specific'));
+                       
+                 $contestId=$specific->contest_id;      
+                 $userId=$specific->user_id;      
+
+      $check=DB::table('contest_winners')
+                      ->join('users','contest_winners.user_id','=','users.id')
+                      ->join('contests','contest_winners.contest_id','=','contests.id')
+                      ->select('contest_winners.*','users.name as user_name','contests.name as contest_name','users.email')
+                      ->where('user_id',$userId)->first();
+
+      if($check){
+        return view('backend.contest-winner.edit',compact('check'));
+
+      }
+      else{
+        return view('backend.contest-winner.create',compact('check'));
+
+      }
+
     }
+
+
      public function contestSelectionUpdate(Request $request){
 
 
@@ -31,11 +50,9 @@ class ContestWinnerController extends Controller
 
         $contest_id=$request->input('contest_id');
         $user_id=$request->input('user_id');
-        // // dd($user_id);
-        // dd($contest_id);
+  
 
           $check=ContestWinner::where('user_id',$user_id)->where('contest_id',$contest_id)->exists();
-          // dd($check);
          if($check){
       return redirect()->route('contest.result')->with('status','You already Added this user to this Winner Contest');
 }

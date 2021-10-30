@@ -42,6 +42,7 @@
       </div><!-- br-pagebody -->
 
         @include('backend.inc.footer')
+        @yield('scripts')
     </div>
 
   </body>

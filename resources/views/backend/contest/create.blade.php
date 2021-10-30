@@ -1,6 +1,10 @@
 
 @extends('backend.master')
 @section('section')
+<style>
+  <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+
+</style>
 
 <h1> ADD CONTEST</h1>
 @include('message.message')
@@ -83,13 +87,13 @@
 
 @endsection
 
+@section('scripts')
 <script>
     ClassicEditor
-        .create( document.querySelector( '#my-editor' ) )
-        .catch( error => {
-            console.error( error );
-        } );
+         CKEDITOR.replace( 'my-editor' );
+
 </script>
+@endsection
 
 
 

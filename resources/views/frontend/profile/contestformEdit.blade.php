@@ -13,7 +13,7 @@ Homepage
              @if(Session('status'))
                       <div class="form-group col-sm-4 col-md-8">
                       <div class="alert alert-danger" role="alert">
-                               {{ Session('status') }} <a href="{{route('my-contest')}}">Edit!</a>
+                               {{ Session('status') }} 
                           </div>
                       </div>
                       @endif
@@ -39,35 +39,37 @@ Homepage
               </div>
               <div class="card-body">
             
-                <form autocomplete="off" class="form" role="form" method="POST" enctype="multipart/form-data" action="{{route('contest-store')}}">
+                <form autocomplete="off" class="form" role="form" method="POST" enctype="multipart/form-data" action="{{route('userConform-update',$contestformEdit->id)}}">
                 	@csrf
 
-                  <input type="hidden" name="contest_id" value="{{$contestformEdit->id}}">
+                  <input type="hidden" name="contest_id" value="{{$contestformEdit->contest_id}}">
                   <input type="hidden" name="topic_id" value="{{$contestformEdit->topic_id}}">
                   <fieldset>
                     <label class="mb-0" for="name2">Name</label>
                     <div class="row mb-1">
                       <div class="col-lg-12">
-                        <input class="form-control" id="name2" name="name2" readonly type="text" value="">
+                        <input class="form-control" id="name2" name="name2" readonly type="text" value="{{$contestformEdit->user_name}}">
                       </div>
                     </div>
 										<label class="mb-0" for="email2">Email</label>
                     <div class="row mb-1">
                       <div class="col-lg-12">
-                        <input class="form-control" id="email2" name="email2" readonly value="" type="text">
+                        <input class="form-control" id="email2" name="email2" readonly value="{{$contestformEdit->user_email}}" type="text">
                       </div>
                     </div>
 							<label class="mb-0" for="file">File</label>
 
                          <div class="row mb-1">
                       <div class="col-lg-12">
-                        <input class="form-control" id="file" name="file"  type="file">
+                        {{$contestformEdit->file}}
+                        <input class="form-control" id="file" name="file"  type="file"  />
                       </div>
                     </div>
 					<label class="mb-0" for="message2">Message</label>
                     <div class="row mb-1">
                       <div class="col-lg-12">
-                        <textarea class="form-control" id="message2" name="notes"  rows="6"></textarea>
+                        <textarea class="form-control" id="message2" name="notes"  rows="6">{{$contestformEdit->notes}}
+                        </textarea>
                       </div>
                     </div>
 										<button class="btn btn-primary btn-lg float-right" type="submit">Submit</button>

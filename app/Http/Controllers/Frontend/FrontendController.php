@@ -191,17 +191,75 @@ class FrontendController extends Controller
 
   public function pastContestWinner($id){
 
-         $pastContestWinner = ContestWinner::where('contest_id',$id)->first();
-         // dd( $pastContestWinner);
-         return view('frontend.pastcon-winnerDesc',compact('pastContestWinner'));
+         $pastContestname= DB::table('contest_winners')->join('contests','contests.id','=','contest_winners.contest_id')->select('contests.name as contest_name')->where('contest_id',$id)->first();
+         
+
+         $pastContestWinner = DB::table('contest_winners')->join('contests','contests.id','=','contest_winners.contest_id')->join('users','users.id','contest_winners.user_id')->select('contest_winners.*','users.name as user_name','users.email as email')->where('contest_id',$id)->get();
+         // dd($pastContestWinner);
+
+        
+         return view('frontend.pastcon-winnerDesc',compact('pastContestWinner','pastContestname'));
 
   }
 
        public function contestformEdit($id){
-         $contestformEdit = ContestResult::where('contest_id',$id)->first();
+         // $contestformEdit = ContestResult::where('contest_id',$id)->first();
+         $contestformEdit = DB::table('contest_results')->join('users','users.id','=','contest_results.user_id')->select('users.name as user_name','users.email as user_email','contest_results.*')->where('contest_id',$id)->first();
          return view('frontend.profile.contestformEdit',compact('contestformEdit'));
 
        }
+
+
+           public function  contestformUpdate(Request $request,$id){
+              
+            //     $request->validate([
+
+            //      'file' => 'required|max:5000',
+            // ]);
+
+        $updateContest=ContestResult::where('id',$id)->first();
+                 
+
+        $contest_id=$request->input('contest_id');
+        $topic_id=$request->input('topic_id');
+        $user_id=Auth::id();
+
+      
+      
+        if($request->hasFile('file')){
+            $file=$request->file('file');
+            $ext=$file->getClientOriginalName();
+            $filename=time().'.'.$ext;
+            $file->move(public_path('assets/uploads/contest-result/'),$filename);
+            $updateContest->file=$filename;
+
+       $updateContest->contest_id=$request->input('contest_id');
+        $updateContest->topic_id=$request->input('topic_id');
+
+        $updateContest->user_id=Auth::id();
+       $updateContest->notes=$request->input('notes');
+       
+        
+      $updateContest->save();
+         return redirect()->back()->with('status','Your Form data is updated successfully');
+
+        }      
+
+        else{
+
+       $updateContest->contest_id=$request->input('contest_id');
+        $updateContest->topic_id=$request->input('topic_id');
+
+        $updateContest->user_id=Auth::id();
+       $updateContest->notes=$request->input('notes');
+       
+        
+      $updateContest->save();
+         return redirect()->back()->with('status','Your Form data is updated successfully');
+
+        }  
+
+    }
 
   
 }

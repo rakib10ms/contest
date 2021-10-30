@@ -17,16 +17,27 @@ Homepage
               <img class="img-fluid rounded-top" src="" alt="Image">
             </figure>
             <div class="card-body pd-25">
-              <p class="tx-11 tx-uppercase tx-mont tx-semibold tx-info">{{$pastContestWinner->contest_id}}</p>
-              <h5 class="tx-normal tx-roboto lh-3 mg-b-15"><a href="" class="tx-inverse hover-info">{{ $pastContestWinner->user_id}}</a></h5>
-              <p class="tx-14 tx-gray-600 mg-b-25">{{$pastContestWinner->winning_position}} </p>
-                    <p class="tx-16 mg-b-0">
-                <a href="" class="badge badge-warning p-2"><i class="fas fa-calendar-check fa-2x px-2"></i></h5></a>
-              
-
-      <a href="" class="badge badge-info p-2"><i class="fas fa-calendar-check fa-2x px-2"></i></a>             
-
-       </p>
+              <p class="tx-11 tx-uppercase tx-mont tx-semibold tx-info">{{$pastContestname->contest_name}}</p>
+              <h5 class="tx-normal tx-roboto lh-3 mg-b-15"><a href="" class="tx-inverse hover-info"></a></h5>
+              <table class="table "> 
+                <tr>
+                <th> #SL </th>
+                <th> Name </th>
+                <th> Email </th>
+                <th> Winning Position </th>
+              </tr>
+              <tbody>
+                @foreach($pastContestWinner as $key=> $winner)
+                <tr>
+                  <td> {{$key+1}}</td>
+                <td> {{$winner->user_name}}</td>
+                <td> {{$winner->email}}</td>
+                <td> {{$winner->winning_position}}</td>
+              </tr>
+              @endforeach
+              </tbody>
+              </table>
+                   
       
     
          

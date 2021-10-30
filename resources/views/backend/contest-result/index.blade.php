@@ -45,7 +45,7 @@
       <td>{{$contest->updated_at}}</td>
      
         <td>
-     <a href="{{route('contest.select',$contest->id)}}" class="btn btn-success"> <i class="fa fa-trophy mx-2" aria-hidden="true"></i> Select Winner  </a>
+     <a href="{{route('contest.select',$contest->id)}}" class="btn btn-info"> <i class="fa fa-trophy mx-2" aria-hidden="true"></i>Update Winner  </a>
      <!-- Button trigger modal -->
     
 

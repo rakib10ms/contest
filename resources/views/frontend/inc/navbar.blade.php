@@ -22,7 +22,7 @@
 
 <div class="collapse navbar-collapse" id="navbar4">
 <ul class="navbar-nav mr-auto pl-lg-4">
-<li class="nav-item px-lg-2 active"> <a class="nav-link" href="#"> <span class="d-inline-block d-lg-none icon-width"><i class="fas fa-home"></i></span>Home</a> </li>
+<li class="nav-item px-lg-2 active"> <a class="nav-link" href="{{url('/')}}"> <span class="d-inline-block d-lg-none icon-width"><i class="fas fa-home"></i></span>Home</a> </li>
 
 <li class="nav-item px-lg-2"> <a class="nav-link" href="#"><span class="d-inline-block d-lg-none icon-width"><i class="far fa-user"></i></i></span>About</a> </li>
 <li class="nav-item px-lg-2"> <a class="nav-link" href="{{route('contest')}}"><span class="d-inline-block d-lg-none icon-width"><i class="far fa-user"></i></i></span>Running Contest</a> </li>

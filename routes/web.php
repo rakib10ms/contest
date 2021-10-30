@@ -92,6 +92,7 @@ Route::get('/userprofile/view',  '\App\Http\Controllers\Frontend\ProfileControll
 Route::get('/all-runningContest/{id}',  '\App\Http\Controllers\Frontend\FrontendController@runningContest')->name('all-runningContest');
 Route::get('/past-contestWinner/{id}',  '\App\Http\Controllers\Frontend\FrontendController@pastContestWinner')->name('past-contestWinner');
 Route::get('/contestform-edit/{id}',  '\App\Http\Controllers\Frontend\FrontendController@contestformEdit')->name('contestform-edit');
+Route::post('/userConform-update/{id}',  '\App\Http\Controllers\Frontend\FrontendController@contestformUpdate')->name('userConform-update');
 
 
 
