@@ -6,16 +6,16 @@
 
 
 
-	<form action="{{route('contest.selectUpdate',$specific->id)}}" method="POST" >
+	<form action="{{route('contest.selectionStore')}}" method="POST" >
     @csrf
     <div class="row">
       <div class="col-md-12">
     <div class="form-group col-md-10">
       <label for="text">Contest Name *</label>
-      <input type="text" class="form-control" id="text" placeholder="Contest Name"  value="{{$specific->contest_name}}" readonly="" >
+      <input type="text" class="form-control" id="text" placeholder="Contest Name"  value="{{$check->contest_name}}" readonly="" >
 
            <div class="form-group col-md-10">
-      <input type="text" class="form-control" id="text" placeholder="User Name"  name="contest_id" value="{{$specific->contest_id}}" hidden>
+      <input type="text" class="form-control" id="text" placeholder="User Name"  name="contest_id" value="{{$check->contest_id}}" hidden>
     </div>
 
     </div>
@@ -24,16 +24,16 @@
 
         <div class="form-group col-md-10">
       <label for="text">User Name </label>
-      <input type="text" class="form-control" id="text" placeholder="User Name"   value="{{$specific->user_name}}" readonly="" >
+      <input type="text" class="form-control" id="text" placeholder="User Name"   value="{{$check->user_name}}" readonly="" >
     </div>
         <div class="form-group col-md-10">
-      <input type="text" class="form-control" id="text" placeholder="User Name"  name="user_id" value="{{$specific->user_id}}" hidden="">
+      <input type="text" class="form-control" id="text" placeholder="User Name"  name="user_id" value="{{$check->user_id}}" hidden="">
     </div>
 
 
          <div class="form-group col-md-10">
       <label for="text">User Email </label>
-      <input type="text" class="form-control" id="text" placeholder="User Name"   value="{{$specific->email}}" readonly="">
+      <input type="text" class="form-control" id="text" placeholder="User Name"   value="{{$check->email}}" readonly="">
     </div>
 
 
@@ -81,10 +81,6 @@
 
 
 </form>
-
-
-
-
 
 
 @endsection

@@ -33,20 +33,12 @@ Homepage
                   <th scope="row">{{$key+1}}</th>
                   <td>{{$contest->code}}</td>
                   <td>{{$contest->name}}</td>
-                  <td> <span class="bage badge-info p-2">{{$contest->end_date}} </span></td>
-                  <td>
-                   @if($contest->image)
-                    $get=substr($contest->image,-3);
-                    dd($get);
-                    @if($get=='jpg'||'png')
                    <td><img src="{{asset('assets/uploads/contest-result/'.$contest->image)}}"/></td>
 
+                  <td> <span class="bage badge-info p-2">{{$contest->end_date}} </span></td>
+               
+
                     
-                    @else
-                     <td><span class=""> {{asset('assets/uploads/contest-result/'.$contest->image)}} </span></td>
-                   @endif
-                   @endif
-                  </td>
                   <td> <a href="{{route('contestform-edit',$contest->id)}}" class="btn btn-info" style="margin-top:-10px;"><i class="fa fa-edit"> </i> Edit </a>
                 </tr>
                 @endforeach

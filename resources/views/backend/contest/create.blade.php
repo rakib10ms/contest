@@ -2,7 +2,9 @@
 @extends('backend.master')
 @section('section')
 <style>
-  <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </style>
 
@@ -50,14 +52,14 @@
   
     <div class="form-group col-md-10">
    <label for="startdate">Start Date *</label>
-     <input type="date"  id="datepicker" placeholder="Start Date"  name="start_date"  class="form-control datepicker" autocomplete="off">
+     <input type="text"  id="datepicker" placeholder="Start Date"  name="start_date"  class="form-control datepicker" autocomplete="off">
 
     </div>
 
  
     <div class="form-group col-md-10">
    <label for="enddate">End  Date *</label>
-     <input type="date"  class="form-control datepicker" autocomplete="off" id="enddate" placeholder="End  Date"  name="end_date"  >
+     <input type="text"  class="form-control datepicker" autocomplete="off" id="enddate" placeholder="End  Date"  name="end_date"  >
 
     </div>
 
@@ -88,10 +90,12 @@
 @endsection
 
 @section('scripts')
-<script>
-    ClassicEditor
-         CKEDITOR.replace( 'my-editor' );
-
+<script type="text/javascript">
+   
+    $('.datepicker').datepicker({ 
+        startDate: new Date()
+    });
+  
 </script>
 @endsection
 

@@ -37,7 +37,7 @@
       <td>{{$contest->file}}
         <div>
           <a href=""><i class="fa fa-eye fa-3x badge badge-success"> </i> </a>
-          <i class="fa fa-download  fa-3x badge badge-warning"> </i>
+          <a href="{{url('/download/'.$contest->file)}}" target="_blank"> <i class="fa fa-download  fa-3x badge badge-warning"> </i> </a>
         </div>
       </td>
     

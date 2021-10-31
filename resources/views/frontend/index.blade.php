@@ -14,7 +14,7 @@ Homepage
 
 
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner" style="width:100%;height:60vh;">
+  <div class="carousel-inner" style="width:100%;height:60vh;object-fit:contain;">
     <div class="carousel-item active">
       <img class="d-block w-100 " src="https://cdn.pixabay.com/photo/2020/05/31/20/06/cyber-5244032_960_720.png" alt="First slide">
     </div>
@@ -22,7 +22,7 @@ Homepage
       <img class="d-block w-100" src="https://cdn.pixabay.com/photo/2021/09/15/06/13/crowd-6625850_960_720.png" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide">
+      <img class="d-block w-100" src="https://as1.ftcdn.net/v2/jpg/03/43/43/72/1000_F_343437244_HrxIVZWbfh29tgxuRlxbPXEpHMSmfkAn.jpg" alt="Third slide">
     </div>
   </div>
 </div>

@@ -33,12 +33,8 @@
       <td>{{$contest->message}}</td>
      
         <td>
-     <a href="" class="btn btn-success"> <i class="fa fa-trophy mx-2" aria-hidden="true"></i> Edit Winner  </a>
-     <!-- Button trigger modal -->
-      <a href="" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-        DELETE
-      </a>
-
+    
+         <a href="" class="btn btn-info"> <i class="fa fa-trophy mx-2" aria-hidden="true"></i>Update Winner  </a>
  
 
       </td>

@@ -58,7 +58,11 @@ Route::get('/dashboard', function () {
 
      //contest selection
      Route::get('contest/selection/{id}', '\App\Http\Controllers\Admin\ContestWinnerController@contestSelection')->name('contest.select');
+
+      Route::post('contest/selectionStore', '\App\Http\Controllers\Admin\ContestWinnerController@contestSelectionStore')->name('contest.selectionStore');
+
     Route::post('contest/selectionUpdate/{id}', '\App\Http\Controllers\Admin\ContestWinnerController@contestSelectionUpdate')->name('contest.selectUpdate');
+
 
 //all winner
     Route::get('all/winner', '\App\Http\Controllers\Admin\ContestWinnerController@allWinner')->name('all-winner');
@@ -71,10 +75,12 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+
+
+
+
+
 //frontend routes
-
-
-
 Route::get('/',  '\App\Http\Controllers\Frontend\FrontendController@index')->name('contest');
 Route::get('/past-contest',  '\App\Http\Controllers\Frontend\FrontendController@pastContest')->name('past-contest');
 Route::get('/contest-desc/{id}',  '\App\Http\Controllers\Frontend\FrontendController@contestDescription')->name('contest-desc');
@@ -93,6 +99,18 @@ Route::get('/all-runningContest/{id}',  '\App\Http\Controllers\Frontend\Frontend
 Route::get('/past-contestWinner/{id}',  '\App\Http\Controllers\Frontend\FrontendController@pastContestWinner')->name('past-contestWinner');
 Route::get('/contestform-edit/{id}',  '\App\Http\Controllers\Frontend\FrontendController@contestformEdit')->name('contestform-edit');
 Route::post('/userConform-update/{id}',  '\App\Http\Controllers\Frontend\FrontendController@contestformUpdate')->name('userConform-update');
+
+
+//download files
+Route::get('/download/{file}', '\App\Http\Controllers\Admin\DownloadsController@download');
+
+
+//about page routes
+Route::get('/about', '\App\Http\Controllers\Frontend\FrontendController@about');
+
+//contact page 
+Route::get('/contact', '\App\Http\Controllers\Frontend\FrontendController@contact');
+
 
 
 
