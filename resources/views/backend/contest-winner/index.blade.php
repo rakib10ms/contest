@@ -33,9 +33,8 @@
       <td>{{$contest->message}}</td>
      
         <td>
-    
-         <a href="" class="btn btn-info"> <i class="fa fa-trophy mx-2" aria-hidden="true"></i>Update Winner  </a>
- 
+     
+     <a href="{{route('contest.select',$contest->id)}}" class="btn btn-info"> <i class="fa fa-trophy mx-2" aria-hidden="true"></i>Update Winner  </a>
 
       </td>
       

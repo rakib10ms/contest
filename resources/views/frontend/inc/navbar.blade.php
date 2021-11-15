@@ -10,6 +10,16 @@
 }
 
 </style>
+<style type="text/css">
+.drop>p:hover{
+ background: #f2f2f2;
+
+}
+.drop>p{
+     border-bottom: 1px solid #f2f2f2;
+
+}
+</style>
 
 <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light fixed-top">
 <div class="container"> <a class="navbar-brand d-flex align-items-center" href="#">
@@ -28,17 +38,6 @@
 <li class="nav-item px-lg-2"> <a class="nav-link" href="{{route('contest')}}"><span class="d-inline-block d-lg-none icon-width"><i class="far fa-user"></i></i></span>Running Contest</a> </li>
 <li class="nav-item px-lg-2"> <a class="nav-link" href="{{route('past-contest')}}"><span class="d-inline-block d-lg-none icon-width"><i class="far fa-user"></i></i></span>Past Contest</a> </li>
 
-<!-- <li class="nav-item px-lg-2 dropdown d-menu">
-<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="d-inline-block d-lg-none icon-width"><i class="far fa-caret-square-down"></i></span>Dropdown
-<svg  id="arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<polyline points="6 9 12 15 18 9"></polyline>
-</svg>
-</a>
-<div class="dropdown-menu shadow-sm sm-menu" aria-labelledby="dropdown01">
-<a class="dropdown-item" href="#">Action</a>
-<a class="dropdown-item" href="#">Another action</a>
-<a class="dropdown-item" href="#">Something else here</a>
-</div> -->
 </li>
 
 <li class="nav-item px-lg-2"> <a class="nav-link" href="{{url('/contact')}}"><span class="d-inline-block d-lg-none icon-width"><i class="far fa-envelope"></i></span>Contact</a> </li>
@@ -59,9 +58,32 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item dropdown mx-3">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <i class="fas fa-bell fa-2x" style="color:red;"></i>
+                                </a>
+                            <div class="dropdown-menu dropdown-menu-right drop" aria-labelledby="navbarDropdown" style="width:400px;padding: 6px;">
+                                    @php
+                                    $all=DB::table('contest_notices')->get();
+                                   @endphp
+
+                                    @foreach($all as $noti)
+                                       <p class="p-2">
+                                        {{$noti->description}}
+                                    </p>
+
+                                    @endforeach
+                                  
+
+
+
+                                   
+                                </div>
+                           </li>
 
     
                             <li class="nav-item dropdown">
+
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                     <i class="fas fa-angle-down"></i>

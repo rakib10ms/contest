@@ -9,13 +9,11 @@ Homepage
 	p{
 		font-size: 17px;
 	}
-	   body{
-background: #005AA7;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to bottom, #FFFDE4, #005AA7);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to bottom, #FFFDE4, #005AA7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
+body{
+  background:background-color: #b8c6db;
+background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
 }
+
 </style>
 
 <div class="container my-5 border p-5 bg-white">
@@ -30,5 +28,8 @@ background: linear-gradient(to bottom, #FFFDE4, #005AA7); /* W3C, IE 10+/ Edge, 
 </div>
 </div>
 </div>
+
+    
+
 
 @endsection

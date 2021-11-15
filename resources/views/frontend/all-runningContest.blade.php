@@ -6,7 +6,12 @@ Homepage
 
 @section('section')
 
-
+<style type="text/css">
+  body{
+  background:background-color: #b8c6db;
+background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+}
+</style>
 
 
 <div class="container">
@@ -18,7 +23,7 @@ Homepage
 <div class="col-md-4 mt-4">
 <div class="card-deck card-deck-sm mg-x-0">
           <div class="card shadow-base bd-0 mg-0">
-            <figure class="card-item-img bg-mantle rounded-top " style="width:100%;height: 250px;object-fit: cover;overflow: hidden;">
+            <figure class="rounded-top " style="width:100%;height: 250px;object-fit: cover;overflow: hidden;">
               <img class="img-fluid rounded-top" src="{{asset('assets/uploads/contest/'.$contest->image)}}" alt="Image">
             </figure>
             <div class="card-body pd-25">

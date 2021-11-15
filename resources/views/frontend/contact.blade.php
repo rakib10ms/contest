@@ -5,14 +5,13 @@ Homepage
 @endsection
 
 @section('section')
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <!------ Include the above in your HEAD tag ---------->
 
 <style type="text/css">
     body{
-    background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
+  background:background-color: #b8c6db;
+background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
 }
 .contact-form{
     background: #fff;
@@ -69,18 +68,26 @@ Homepage
             <div class="contact-image">
                 <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
             </div>
-            <form method="post">
+            <form method="post" action="{{route('contact-store')}}">
+                @csrf
                 <h3>Drop Us a Message</h3>
+                
+                 @if(session()->has('status'))
+           <div class="alert alert-success">
+                {{ session()->get('status') }}
+            </div>
+           @endif
+
                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" />
+                            <input type="text" name="name" class="form-control" placeholder="Your Name *" value="" required="" />
                         </div>
                         <div class="form-group">
-                            <input type="text" name="txtEmail" class="form-control" placeholder="Your Email *" value="" />
+                            <input type="text" name="email" class="form-control" placeholder="Your Email *" value="" required="" />
                         </div>
                         <div class="form-group">
-                            <input type="text" name="txtPhone" class="form-control" placeholder="Your Phone Number *" value="" />
+                            <input type="text" name="phone" class="form-control" placeholder="Your Phone Number *" value="" required="" />
                         </div>
                         <div class="form-group">
                             <input type="submit" name="btnSubmit" class="btnContact" value="Send Message" />
@@ -88,10 +95,14 @@ Homepage
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <textarea name="txtMsg" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;"></textarea>
+                            <textarea name="message" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;" required=""></textarea>
                         </div>
                     </div>
                 </div>
             </form>
 </div>
+
+
+
+
 @endsection

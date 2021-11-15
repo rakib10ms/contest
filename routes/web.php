@@ -18,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'admin','middleware'=>['auth','isAdmin']], function() {
 
-Route::get('/dashboard', function () {
-    return view('backend.master');
-});
+Route::get('/dashboard','\App\Http\Controllers\Admin\DashboardController@index')->name('admin.dashboard');
 
 //all users
 
@@ -67,6 +65,18 @@ Route::get('/dashboard', function () {
 //all winner
     Route::get('all/winner', '\App\Http\Controllers\Admin\ContestWinnerController@allWinner')->name('all-winner');
 
+//contact 
+Route::get('/contact/all', '\App\Http\Controllers\Frontend\FrontendController@allContact')->name('all-contact');
+Route::get('/contact/delete/{id}', '\App\Http\Controllers\Frontend\FrontendController@deleteContact')->name('contact-delete');
+
+//contest notice
+
+Route::get('/contest-notice', '\App\Http\Controllers\Admin\ContestNoticeController@index')->name('contest-notice');
+Route::get('/contest-notice/create', '\App\Http\Controllers\Admin\ContestNoticeController@create')->name('contest-notice.create');
+Route::post('/contest-notice/store', '\App\Http\Controllers\Admin\ContestNoticeController@store')->name('contest-notice.store');
+
+
+
 });
 
 Auth::routes();
@@ -108,9 +118,10 @@ Route::get('/download/{file}', '\App\Http\Controllers\Admin\DownloadsController@
 //about page routes
 Route::get('/about', '\App\Http\Controllers\Frontend\FrontendController@about');
 
-//contact page 
-Route::get('/contact', '\App\Http\Controllers\Frontend\FrontendController@contact');
 
+    //contact page 
+Route::get('/contact', '\App\Http\Controllers\Frontend\FrontendController@contact');
+Route::post('/contact/store', '\App\Http\Controllers\Frontend\FrontendController@contactStore')->name('contact-store');
 
 
 

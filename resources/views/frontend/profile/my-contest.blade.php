@@ -9,15 +9,15 @@ Homepage
 
 
   <!--Only Card-->
-  <div class="container my-5">
+  <div class="container my-5 ">
     <div class="card mb-3 filter shadow-lg  pb-3" style="padding: 0%; border: none; width: 100%;">
       <div class="row g-0 ">
         
-        <div class="col-12 col-md-12 ">
-          <div class="card-body">
+        <div class="col-12 col-md-12  ">
+          <div class="card-body text-white">
             <h3 class="card-title">Running Attendent Contest</h3>
-            <table class="table">
-              <thead>
+            <table class="table bg-info p-2 text-white">
+              <thead class="txt-white">
                 <tr>
                   <th scope="col">#SL</th>
                   <th scope="col">Contest Code</th>
@@ -28,12 +28,13 @@ Homepage
                 </tr>
               </thead>
               <tbody>
-                @foreach($runningAttendent as $key => $contest)
+                @if(count($runningAttendent)>=1)
+                   @foreach($runningAttendent as $key => $contest)
                 <tr>
                   <th scope="row">{{$key+1}}</th>
                   <td>{{$contest->code}}</td>
                   <td>{{$contest->name}}</td>
-                   <td><img src="{{asset('assets/uploads/contest-result/'.$contest->image)}}"/></td>
+                   <td>file</td>
 
                   <td> <span class="bage badge-info p-2">{{$contest->end_date}} </span></td>
                
@@ -42,13 +43,20 @@ Homepage
                   <td> <a href="{{route('contestform-edit',$contest->id)}}" class="btn btn-info" style="margin-top:-10px;"><i class="fa fa-edit"> </i> Edit </a>
                 </tr>
                 @endforeach
+                
+                @else
+                  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                      <strong>Hello! {{Auth::user()->name}}</strong> You have not partcipated any running attendent contest.
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                
+                @endif
 
               </tbody>
             </table>
-              <div class="buttonCard" style="margin-top: 3%;">
-                <button class="btn btn-primary col-md-3 mt-1 mt-md-0 " type="submit">Get Now
-                </button>
-              </div>
+           
           </div>
         </div>
       </div>
@@ -66,7 +74,7 @@ Homepage
         <div class="col-12 col-md-12 ">
           <div class="card-body">
             <h3 class="card-title">MY Contest Winning Result</h3>
-            <table class="table">
+            <table class="table  bg-warning p-2">
               <thead>
                 <tr>
                   <th scope="col">#SL</th>
@@ -78,27 +86,60 @@ Homepage
                 </tr>
               </thead>
               <tbody>
+                @if(count($userConresult)>=1)
+                
                 @foreach($userConresult as $key => $contest)
                 <tr>
                   <th scope="row">{{$key+1}}</th>
                   <td>{{$contest->contest_code}}</td>
                   <td>{{$contest->contest_name}}</td>
-                  <td>{{$contest->winning_price}}</td>
-                <td>
-                 
-                                {{$contest->winning_position}}
+                  <td>
+                             @if($contest->winning_position=='1')
+                  <badge class="badge badge-info py-2 px-3">First </badge>
+                  @elseif($contest->winning_position=='2')
+                  <badge class="badge badge-info py-2 px-3">Second</badge>
+                       @elseif($contest->winning_position=='3')
+                  <badge class="badge badge-info py-2 px-3">Third</badge>
+                       @elseif($contest->winning_position=='4')
+                  <badge class="badge badge-info py-2 px-3">Fourth</badge>
 
+                       @elseif($contest->winning_position=='5')
+                  <badge class="badge badge-info py-2 px-3">Fifth</badge>
+                       @elseif($contest->winning_position=='6')
+                  <badge class="badge badge-info py-2 px-3">Sixth</badge>
+                       @elseif($contest->winning_position=='7')
+                  <badge class="badge badge-info py-2 px-3">Seventh</badge>
+
+                       @elseif($contest->winning_position=='8')
+                  <badge class="badge badge-info py-2 px-3">Eighth</badge>
+                       @elseif($contest->winning_position=='9')
+                  <badge class="badge badge-info py-2 px-3">Ninth</badge>
+                       @elseif($contest->winning_position=='10')
+                  <badge class="badge badge-info py-2 px-3">Tenth</badge>
+
+                  @endif
+                  </td>
+                <td>
+                   {{$contest->winning_price}}
                        </td>
                   <td>{{$contest->message}}</td>
                 </tr>
                 @endforeach
 
+                @else
+            
+                  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                      <strong>Hello! {{Auth::user()->name}}</strong> You have not won any contest.
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                @endif
+            
+
               </tbody>
             </table>
-              <div class="buttonCard" style="margin-top: 3%;">
-                <button class="btn btn-primary col-md-3 mt-1 mt-md-0 " type="submit">Get Now
-                </button>
-              </div>
+           
           </div>
         </div>
       </div>
@@ -114,16 +155,19 @@ Homepage
         <div class="col-12 col-md-12 ">
           <div class="card-body">
             <h3 class="card-title">All Attendent Contest</h3>
-            <table class="table">
+            <table class="table  bg-light p-2">
               <thead>
                 <tr>
                   <th scope="col">#SL</th>
                   <th scope="col">Contest Code</th>
                   <th scope="col">Contest Name</th>
+                  <th scope="col">Start Date</th>
                   <th scope="col">Last Date</th>
                 </tr>
               </thead>
               <tbody>
+                   @if(count($userConresult)>=1)
+
                 @foreach($prevAttendContest as $key => $contest)
                 <tr>
                   <th scope="row">{{$key+1}}</th>
@@ -133,13 +177,20 @@ Homepage
                   <td> {{$contest->end_date}} </td>
                 </tr>
                 @endforeach
+                @else
+
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                      <strong>Hello! {{Auth::user()->name}}</strong> You have participated any contest.
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+
+                @endif
 
               </tbody>
             </table>
-              <div class="buttonCard" style="margin-top: 3%;">
-                <button class="btn btn-primary col-md-3 mt-1 mt-md-0 " type="submit">Get Now
-                </button>
-              </div>
+             
           </div>
         </div>
       </div>

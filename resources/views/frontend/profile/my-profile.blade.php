@@ -7,12 +7,12 @@ Homepage
 @section('section')
 
 <div class="container my-5">
-    <a href="{{route('my-profileView')}}" class="btn btn-info mx-2 float-right "> View Profile</a>
 
 <div class="card card-body">
 <div class="container">
   <div class="row">
     <div class="col-md-6 ">
+
   <h3> Edit Profile </h3>
  <form class="" action="{{route('userupdate-profile',Auth::id())}}" method="POST" enctype="multipart/form-data">
   @csrf
@@ -79,6 +79,8 @@ Homepage
 </div>
 
 <div class="col-md-6">
+ <a href="{{route('my-profileView')}}" class="btn btn-info mx-2 float-right "> View Profile</a>
+
   <h3> Update Password</h3>
 @if(session()->has('success'))
     <div class="alert alert-success">

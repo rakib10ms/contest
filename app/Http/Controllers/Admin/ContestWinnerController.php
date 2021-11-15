@@ -52,22 +52,32 @@ class ContestWinnerController extends Controller
 
 
 
-     public function contestSelectionUpdate(Request $request,$id){
+     public function contestSelectionUpdate(Request $request,$id){  
+ 
 
 
+        $updateData=ContestWinner::where('id',$id)->first();
         $contest_id=$request->input('contest_id');
         $user_id=$request->input('user_id');
-  
+        $winning_price=$request->input('winning_price');
+        $winning_position=$request->input('winning_position');
+        $message=$request->input('message');
 
-          $check=ContestWinner::where('user_id',$user_id)->where('contest_id',$contest_id)->exists();
-         if($check){
-      return redirect()->route('contest.result')->with('status','You already Added this user to this Winner Contest');
-}
+        $updateData->user_id=$user_id;
+        $updateData->winning_price=$winning_price;
+        $updateData->winning_position=  $winning_position;
+        $updateData->contest_id=$contest_id;
+        $updateData->message= $message;
+        
+        $updateData->update();
+        return redirect()->route('all-winner')->with('status','Winner updated successfully');
+
+    }
 
 
 
 
-}
+
 
     public function allWinner(){
         $all=DB::table('contest_winners')

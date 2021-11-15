@@ -10,16 +10,20 @@ Homepage
   .card-item-img{
 
   }
+body{
+  background:background-color: #b8c6db;
+background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+}
 </style>
 
 
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner" style="width:100%;height:60vh;object-fit:contain;">
+  <div class="carousel-inner" style="width: 100%;height:60vh;object-fit:cover; margin:0 auto;">
     <div class="carousel-item active">
-      <img class="d-block w-100 " src="https://cdn.pixabay.com/photo/2020/05/31/20/06/cyber-5244032_960_720.png" alt="First slide">
+      <img class="d-block w-100 " src="https://cdn5.vectorstock.com/i/1000x1000/61/09/banner-with-text-contest-tournament-vector-28786109.jpg" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="https://cdn.pixabay.com/photo/2021/09/15/06/13/crowd-6625850_960_720.png" alt="Second slide">
+      <img class="d-block w-100" src="https://previews.123rf.com/images/syuzannam/syuzannam1802/syuzannam180200507/95817488-contest-lettering-horizontal-contest-banner-sliced-text-effect-element-for-graphic-design-poster-fly.jpg" alt="Second slide">
     </div>
     <div class="carousel-item">
       <img class="d-block w-100" src="https://as1.ftcdn.net/v2/jpg/03/43/43/72/1000_F_343437244_HrxIVZWbfh29tgxuRlxbPXEpHMSmfkAn.jpg" alt="Third slide">

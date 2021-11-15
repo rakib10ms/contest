@@ -3,7 +3,7 @@
       <label class="sidebar-label pd-x-10 mg-t-20 op-3">Navigation</label>
       <ul class="br-sideleft-menu">
         <li class="br-menu-item">
-          <a href="index.html" class="br-menu-link active">
+          <a href="{{url('admin/dashboard')}}" class="br-menu-link active">
             <i class="menu-item-icon icon ion-ios-home-outline tx-24"></i>
             <span class="menu-item-label">Dashboard</span>
           </a><!-- br-menu-link -->
@@ -60,6 +60,28 @@
           </a><!-- br-menu-link -->
           <ul class="br-menu-sub">
             <li class="sub-item"><a href="{{route('all-winner')}}" class="sub-link">All Winners</a></li>
+    
+          </ul>
+        </li>   
+
+       <li class="br-menu-item mt-2">
+          <a href="#" class="br-menu-link with-sub">
+          <i class="fas fa-bell"></i>
+            <span class="menu-item-label">CONTEST NOTICE</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            <li class="sub-item"><a href="{{route('contest-notice')}}" class="sub-link">All Contest Notice</a></li>
+    
+          </ul>
+        </li>
+
+        <li class="br-menu-item mt-2">
+          <a href="#" class="br-menu-link with-sub">
+          <i class="fas fa-reply-all"></i>
+            <span class="menu-item-label">USER MESSAGES</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            <li class="sub-item"><a href="{{route('all-contact')}}" class="sub-link">All Contact Info</a></li>
     
           </ul>
         </li>

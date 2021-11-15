@@ -5,6 +5,12 @@ Homepage
 @endsection
 
 @section('section')
+<style type="text/css">
+body{
+  background:background-color: #b8c6db;
+background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+}
+</style>
 <div class="container">
 	<div class="row mt-4">
 			@foreach($pastContest as $contest)

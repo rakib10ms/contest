@@ -2,7 +2,7 @@
 @section('section')
 
 <h1>CONTSEST WINNER SELECTION EDIT</h1>
-<div class="alert alert-success col-md-8">You have already selected this users as winner in this contest.You can now update it! </div>
+<div class="alert alert-info col-md-10">You have already selected this users as winner in this contest.You can now update it! </div>
 @include('message.message')
 
 

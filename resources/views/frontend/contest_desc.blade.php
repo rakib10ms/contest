@@ -18,8 +18,8 @@ Homepage
 <div class="col-md-10 mt-4">
 <div class="card-deck card-deck-sm mg-x-0">
           <div class="card shadow-base bd-0 mg-0">
-            <figure class=" rounded-top " style="width:100%;height: 270px;object-fit: cover;overflow: hidden;">
-              <img class="img-fluid rounded-top color" src="{{asset('assets/uploads/contest/'.$contestDescription->image)}}" alt="Image">
+            <figure class=" rounded-top " style="width:100%;height: 350px;overflow-y: hidden;">
+              <img class="img-fluid rounded-top color" src="{{asset('assets/uploads/contest/'.$contestDescription->image)}}" alt="Image" style="width:100%;height:100%;object-fit: cover;">
             </figure>
             <div class="card-body pd-25">
               <p class="tx-11 tx-uppercase tx-mont tx-semibold tx-info">{{$contestDescription->topic_name}}</p>

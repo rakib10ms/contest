@@ -2,30 +2,26 @@
 @section('section')
 
 
-<div class="header d-flex justify-content-between">
 <h1> All CONTEST  </h1>
 
-<div class="col-md-6 d-flex">
-  <form action="{{route('contest.search')}}" method="POST">
+<div class="col-md-5 mx-5" style="margin-left: 400px;">
+  <form action="{{route('contest.search')}}" method="POST" class="d-flex mx-5">
     @csrf
-<div class="input-group">
-  <div class="form-outline">
-    <input type="search" id="form1" class="form-control" name="contest_code" />
-    <label class="form-label" for="form1">Search</label>
+  <div class="form-outline w-100">
+    <input type="search" id="form1" class="form-control" name="contest_code" placeholder="search contest with code"  />
   </div>
-  <button type="submit" class="btn btn-primary">
-    <i class="fas fa-search"></i>
+  <button type="submit" class="btn btn-primary d-block mx-2">
+    <i class="fas fa-search "></i>
   </button>
-</div>
 </form>
 </div>
 
 
 
+
 @include('message.message')
 
-<a href="{{route('contest.create')}}" class="btn btn-primary ">ADD CONTEST</a>
-</div>
+<a href="{{route('contest.create')}}" class="btn btn-primary float-right">ADD CONTEST</a>
 
 <table class="table table-bordered" id="example">
   <thead>

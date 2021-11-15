@@ -5,6 +5,12 @@ Homepage
 @endsection
 
 @section('section')
+<style type="text/css">
+  body{
+  background:background-color: #b8c6db;
+background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+}
+</style>
 <div class="container">
 	<div class="row">
 
@@ -33,7 +39,7 @@ Homepage
           <div class="col-md-8">
             <span class="anchor" id="formContact"></span>
             <!-- form contact -->
-            <div class="card card-outline-secondary " style="background: #c1c1c1; color: black;">
+            <div class="card card-outline-secondary " style="background:white">
               <div class="card-header">
                 <h3 class="mb-0">Edit Form</h3>
               </div>

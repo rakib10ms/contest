@@ -9,6 +9,7 @@ use App\Models\Contest;
 use App\Models\User;
 use App\Models\ContestResult;
 use App\Models\ContestWinner;
+use App\Models\Contact;
 use Auth;
 use DB;
 use File;
@@ -190,15 +191,16 @@ class FrontendController extends Controller
   
 
   public function pastContestWinner($id){
+         $thisId=$id;
 
-         $pastContestname= DB::table('contest_winners')->join('contests','contests.id','=','contest_winners.contest_id')->select('contests.name as contest_name')->where('contest_id',$id)->first();
-         
+
+         $pastCon=DB::table('contests')->where('id',$thisId)->first();
+         // dd($pastCon);         
 
          $pastContestWinner = DB::table('contest_winners')->join('contests','contests.id','=','contest_winners.contest_id')->join('users','users.id','contest_winners.user_id')->select('contest_winners.*','users.name as user_name','users.email as email')->where('contest_id',$id)->get();
-         // dd($pastContestWinner);
 
         
-         return view('frontend.pastcon-winnerDesc',compact('pastContestWinner','pastContestname'));
+         return view('frontend.pastcon-winnerDesc',compact('pastContestWinner','pastCon'));
 
   }
 
@@ -270,6 +272,30 @@ class FrontendController extends Controller
 
       return view('frontend.contact');
       }
+
+
+      public function contactStore(Request $request){
+            
+         $contact=New Contact();
+         $contact->name=$request->name;
+         $contact->phone=$request->phone;
+         $contact->message=$request->message;
+         $contact->email=$request->email;
+
+         $contact->save();
+
+         return redirect()->back()->with('status','Your form is submitted successfully');
+
+      }
+      public function allContact(){
+        $allContact=Contact::orderBy('id','desc')->get();
+        return view('backend.contact.index',compact('allContact'));
+
+      }
+       public function deleteContact($id){
+         $data=Contact::find($id);
+         $data->delete();
+       }
   
 }
 

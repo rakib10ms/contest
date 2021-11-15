@@ -5,19 +5,25 @@ Homepage
 @endsection
 
 @section('section')
+<style type="text/css">
+     body{
+  background:background-color: #b8c6db;
+background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+}
+</style>
 
 
 <div class="container">
 	<div class="row mt-4">
 
 <div class="col-md-8 mt-4">
-<div class="card-deck card-deck-sm mg-x-0">
-          <div class="card shadow-base bd-0 mg-0">
-            <figure class="card-item-img bg-mantle rounded-top " style="width:100%;height: 270px;object-fit: cover;overflow: hidden;">
-              <img class="img-fluid rounded-top" src="" alt="Image">
+<div class="card-deck ">
+          <div class="card  bd-0 mg-0">
+            <figure class=" " style="width:100%;height: 350px;overflow-y: hidden;">
+              <img class="img-fluid rounded-top" src="{{asset('assets/uploads/contest/'.$pastCon->image)}}" alt="Image"  style="width:100%;height:100%;object-fit: cover;">
             </figure>
             <div class="card-body pd-25">
-              <p class="tx-11 tx-uppercase tx-mont tx-semibold tx-info">{{$pastContestname->contest_name}}</p>
+              <p class="tx-11 tx-uppercase tx-mont tx-semibold tx-info">{{$pastCon->name}}</p>
               <h5 class="tx-normal tx-roboto lh-3 mg-b-15"><a href="" class="tx-inverse hover-info"></a></h5>
               <table class="table "> 
                 <tr>
@@ -32,7 +38,32 @@ Homepage
                   <td> {{$key+1}}</td>
                 <td> {{$winner->user_name}}</td>
                 <td> {{$winner->email}}</td>
-                <td> {{$winner->winning_position}}</td>
+                <td> 
+                  @if($winner->winning_position=='1')
+                  <badge class="badge badge-info py-2 px-3">First </badge>
+                  @elseif($winner->winning_position=='2')
+                  <badge class="badge badge-info py-2 px-3">Second</badge>
+                       @elseif($winner->winning_position=='3')
+                  <badge class="badge badge-info py-2 px-3">Third</badge>
+                       @elseif($winner->winning_position=='4')
+                  <badge class="badge badge-info py-2 px-3">Fourth</badge>
+
+                       @elseif($winner->winning_position=='5')
+                  <badge class="badge badge-info py-2 px-3">Fifth</badge>
+                       @elseif($winner->winning_position=='6')
+                  <badge class="badge badge-info py-2 px-3">Sixth</badge>
+                       @elseif($winner->winning_position=='7')
+                  <badge class="badge badge-info py-2 px-3">Seventh</badge>
+
+                       @elseif($winner->winning_position=='8')
+                  <badge class="badge badge-info py-2 px-3">Eighth</badge>
+                       @elseif($winner->winning_position=='9')
+                  <badge class="badge badge-info py-2 px-3">Ninth</badge>
+                       @elseif($winner->winning_position=='10')
+                  <badge class="badge badge-info py-2 px-3">Tenth</badge>
+
+                  @endif
+                </td>
               </tr>
               @endforeach
               </tbody>
