@@ -52,7 +52,7 @@
   
     <div class="form-group col-md-10">
    <label for="startdate">Start Date *</label>
-     <input type="text"  id="datepicker" placeholder="Start Date"  name="start_date"  class="form-control datepicker" autocomplete="off">
+     <input type="text"  id="datepicker" placeholder="Start Date"  data-date-start-date="+1d" name="start_date"  class="form-control datepicker" autocomplete="off">
 
     </div>
 

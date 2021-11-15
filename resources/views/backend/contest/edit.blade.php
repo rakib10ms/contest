@@ -46,7 +46,7 @@
   
     <div class="form-group col-md-10">
    <label for="startdate">Start Date *</label>
-     <input type="date" class="form-control" id="startdate" placeholder="Start Date"  name="start_date"         value="{{$editContest->start_date}}"
+     <input type="date" class="form-control" id="startdate" placeholder="Start Date" name="start_date" data-date-start-date="+1d" value="{{$editContest->start_date}}"
 >
 
     </div>
@@ -82,4 +82,16 @@
 
 
 @endsection
+
+
+@section('scripts')
+<script type="text/javascript">
+   
+    $('.datepicker').datepicker({ 
+        startDate: new Date()
+    });
+  
+</script>
+@endsection
+
 

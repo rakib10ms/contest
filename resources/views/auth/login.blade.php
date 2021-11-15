@@ -230,12 +230,28 @@ a {
                  </div>
              </form>
                     <div class="row mb-4 px-3"> <small class="font-weight-bold">Don't have an account? <a class="text-danger" href="{{url('/register')}} ">Register</a></small> </div>
+
+                <div class="d-flex justify-content-between">
+                    <div>
+               <div class=""> ADMIN </div>
+               <b> email: admin@gmail.com </b>
+               <b> password: 12345678 </b> 
+           </div>
+             <div>
+               <div class=""> USER </div>
+               <b> email: rakib10ms@gmail.com </b>
+               <b> password: 12345678 </b>
+           </div>
                 </div>
             </div>
+            </div>
+
+
         </div>
     
+
     </div>
-</div>
+    </div>
 
 
 <!-- <div class="container">
