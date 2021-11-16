@@ -19,8 +19,7 @@ use Carbon\Carbon;
 
 class FrontendController extends Controller
 {
-
-
+  
     public function index(){
 
       $contests=DB::table('contests')->join('topics','contests.topic_id','=','topics.id')->select('contests.*','topics.name as topic_name')->where('contests.status','1')->orderBy('id','desc')->Paginate(6);

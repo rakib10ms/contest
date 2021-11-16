@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Auth::routes(['verify' => true]);
 
 
 Route::group(['prefix' => 'admin','middleware'=>['auth','isAdmin']], function() {
