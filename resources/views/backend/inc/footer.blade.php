@@ -12,28 +12,28 @@
     </div><!-- br-mainpanel -->
     <!-- ########## END: MAIN PANEL ########## -->
 
-    <script src="{{asset('Backend/lib/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('Backend/lib/jquery-ui/ui/widgets/datepicker.js')}}"></script>
-    <script src="{{asset('Backend/lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('Backend/lib/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
-    <script src="{{asset('Backend/lib/moment/min/moment.min.js')}}"></script>
-    <script src="{{asset('Backend/lib/peity/jquery.peity.min.js')}}"></script>
-    <script src="{{asset('Backend/lib/rickshaw/vendor/d3.min.js')}}"></script>
-    <script src="{{asset('Backend/lib/rickshaw/vendor/d3.layout.min.js')}}"></script>
-    <script src="{{asset('Backend/lib/rickshaw/rickshaw.min.js')}}"></script>
-    <script src="{{asset('Backend/lib/jquery.flot/jquery.flot.js')}}"></script>
-    <script src="{{asset('Backend/lib/jquery.flot/jquery.flot.resize.js')}}"></script>
-    <script src="{{asset('Backend/lib/flot-spline/js/jquery.flot.spline.min.js')}}"></script>
-    <script src="{{asset('Backend/lib/jquery-sparkline/jquery.sparkline.min.js')}}"></script>
-    <script src="{{asset('Backend/lib/echarts/echarts.min.js')}}"></script>
-    <script src="{{asset('Backend/lib/select2/js/select2.full.min.js')}}"></script>
+    <script src="{{asset('public/Backend/lib/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('public/Backend/lib/jquery-ui/ui/widgets/datepicker.js')}}"></script>
+    <script src="{{asset('public/Backend/lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('public/Backend/lib/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
+    <script src="{{asset('public/Backend/lib/moment/min/moment.min.js')}}"></script>
+    <script src="{{asset('public/Backend/lib/peity/jquery.peity.min.js')}}"></script>
+    <script src="{{asset('public/Backend/lib/rickshaw/vendor/d3.min.js')}}"></script>
+    <script src="{{asset('public/Backend/lib/rickshaw/vendor/d3.layout.min.js')}}"></script>
+    <script src="{{asset('public/Backend/lib/rickshaw/rickshaw.min.js')}}"></script>
+    <script src="{{asset('public/Backend/lib/jquery.flot/jquery.flot.js')}}"></script>
+    <script src="{{asset('public/Backend/lib/jquery.flot/jquery.flot.resize.js')}}"></script>
+    <script src="{{asset('public/Backend/lib/flot-spline/js/jquery.flot.spline.min.js')}}"></script>
+    <script src="{{asset('public/Backend/lib/jquery-sparkline/jquery.sparkline.min.js')}}"></script>
+    <script src="{{asset('public/Backend/lib/echarts/echarts.min.js')}}"></script>
+    <script src="{{asset('public/Backend/lib/select2/js/select2.full.min.js')}}"></script>
     <script src="http://maps.google.com/maps/api/js?key=AIzaSyAq8o5-8Y5pudbJMJtDFzb8aHiWJufa5fg')}}"></script>
-    <script src="{{asset('Backend/lib/gmaps/gmaps.min.js')}}"></script>
+    <script src="{{asset('public/Backend/lib/gmaps/gmaps.min.js')}}"></script>
 
-    <script src="{{asset('Backend/js/bracket.js')}}"></script>
-    <script src="{{asset('Backend/js/map.shiftworker.js')}}"></script>
-    <script src="{{asset('Backend/js/ResizeSensor.js')}}"></script>
-    <script src="{{asset('Backend/js/dashboard.js')}}"></script>
+    <script src="{{asset('public/Backend/js/bracket.js')}}"></script>
+    <script src="{{asset('public/Backend/js/map.shiftworker.js')}}"></script>
+    <script src="{{asset('public/Backend/js/ResizeSensor.js')}}"></script>
+    <script src="{{asset('public/Backend/js/dashboard.js')}}"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
 
 

@@ -24,7 +24,7 @@
 <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light fixed-top">
 <div class="container"> <a class="navbar-brand d-flex align-items-center" href="#">
 
-<span class="ml-3 font-weight-bold">BRAND</apan>
+<span class="ml-3 font-weight-bold">CONTEST</apan>
 </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
 <span class="navbar-toggler-icon"></span>
 </button>
@@ -63,7 +63,10 @@
                                     <i class="fas fa-bell fa-2x" style="color:red;"></i>
                                 </a>
                             <div class="dropdown-menu dropdown-menu-right drop" aria-labelledby="navbarDropdown" style="width:400px;padding: 6px;">
-                                    @php
+
+
+                            @if(Illuminate\Support\Facades\Auth::check())
+                                   @php
                                     $all=DB::table('contest_notices')->get();
                                    @endphp
 
@@ -74,9 +77,8 @@
 
                                     @endforeach
                                   
-
-
-
+                            @endif
+                             
                                    
                                 </div>
                            </li>

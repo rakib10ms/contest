@@ -16,11 +16,11 @@ background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
 <div class="container">
 	<div class="row mt-4">
 
-<div class="col-md-8 mt-4">
+<div class="col-md-12 mt-4">
 <div class="card-deck ">
           <div class="card  bd-0 mg-0">
             <figure class=" " style="width:100%;height: 350px;overflow-y: hidden;">
-              <img class="img-fluid rounded-top" src="{{asset('assets/uploads/contest/'.$pastCon->image)}}" alt="Image"  style="width:100%;height:100%;object-fit: cover;">
+              <img class="img-fluid rounded-top" src="{{asset('public/assets/uploads/contest/'.$pastCon->image)}}" alt="Image"  style="width:100%;height:100%;object-fit: cover;">
             </figure>
             <div class="card-body pd-25">
               <p class="tx-11 tx-uppercase tx-mont tx-semibold tx-info">{{$pastCon->name}}</p>
@@ -29,14 +29,19 @@ background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
                 <tr>
                 <th> #SL </th>
                 <th> Name </th>
+                <th> Zilla </th>
                 <th> Email </th>
                 <th> Winning Position </th>
               </tr>
               <tbody>
+               @if(count($pastContestWinner)==0)
+               <div class="alert alert-success"> Contest winner result will update soon by Admin..!</div> 
+               @else
                 @foreach($pastContestWinner as $key=> $winner)
                 <tr>
                   <td> {{$key+1}}</td>
                 <td> {{$winner->user_name}}</td>
+                <td> {{$winner->district}}</td>
                 <td> {{$winner->email}}</td>
                 <td> 
                   @if($winner->winning_position=='1')
@@ -66,6 +71,7 @@ background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
                 </td>
               </tr>
               @endforeach
+              @endif
               </tbody>
               </table>
                    

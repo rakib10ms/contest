@@ -15,9 +15,21 @@ background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
 	<div class="row">
 
 
-		<div class="col-md-10 mt-5 card-body ">
-             @if(Session('status'))
-                      <div class="form-group col-sm-4 col-md-8">
+		<div class="col-md-12 mt-5 card-body ">
+    
+
+
+         <div class="row justify-content-center ">
+          <div class="col-md-10">
+            <span class="anchor" id="formContact"></span>
+            <!-- form contact -->
+            <div class="card card-outline-secondary " style="background:white">
+              <div class="card-header">
+                <h3 class="mb-0">Add Form</h3>
+              </div>
+              <div class="card-body">
+                     @if(Session('status'))
+                      <div class="form-group col-sm-4 col-md-12">
                       <div class="alert alert-danger" role="alert">
                                {{ Session('status') }} <a href="{{route('my-contest')}}">Edit!</a>
                           </div>
@@ -27,24 +39,13 @@ background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
 
                       @if($errors->any())
                       @foreach($errors->all() as $error)
-                      <div class="form-group col-sm-4 col-md-8">
+                      <div class="form-group col-sm-4 col-md-12">
                       <div class="alert alert-danger" role="alert">
                                {{ $error }}
                           </div>
                       </div>
                       @endforeach
                       @endif
-
-         <div class="row justify-content-center ">
-          <div class="col-md-8">
-            <span class="anchor" id="formContact"></span>
-            <!-- form contact -->
-            <div class="card card-outline-secondary " style="background:white">
-              <div class="card-header">
-                <h3 class="mb-0">Add Form</h3>
-              </div>
-              <div class="card-body">
-            
                 <form autocomplete="off" class="form" role="form" method="POST" enctype="multipart/form-data" action="{{route('contest-store')}}">
                 	@csrf
 
@@ -76,7 +77,7 @@ background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
                         <textarea class="form-control" id="message2" name="notes"  rows="6"></textarea>
                       </div>
                     </div>
-										<button class="btn btn-primary btn-lg float-right" type="submit">Submit</button>
+										<button class="btn btn-primary btn-lg float-right mt-2" type="submit">Submit</button>
                   </fieldset>
                 </form>
 

@@ -36,14 +36,14 @@
 
       </td>
         <td>
-     <a href="}" class="btn btn-success">EDIT  </a>
+     <a href="{{route('contest-notice.edit',$notice->id)}}" class="btn btn-success">EDIT  </a>
      <!-- Button trigger modal -->
-      <a href="" type="button" class="btn btn-danger" data-toggle="modal" data-target="">
+      <a href="{{route('contest-notice.delete',$notice->id)}}" type="button" class="btn btn-danger">
         DELETE
       </a>
 
       <!-- Modal -->
-      <div class="modal fade" id="" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal fade" id="exampleModal{{$notice->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -54,8 +54,8 @@
             </div>
          
             <div class="modal-footer">
-              <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
-              <a href="" class="btn btn-danger">Confirm</a>
+              <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+              <a href="{{route('contest-notice.delete',$notice->id)}}" class="btn btn-primary">Save changes</a>
             </div>
           </div>
         </div>

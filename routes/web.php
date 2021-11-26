@@ -75,6 +75,9 @@ Route::get('/contact/delete/{id}', '\App\Http\Controllers\Frontend\FrontendContr
 Route::get('/contest-notice', '\App\Http\Controllers\Admin\ContestNoticeController@index')->name('contest-notice');
 Route::get('/contest-notice/create', '\App\Http\Controllers\Admin\ContestNoticeController@create')->name('contest-notice.create');
 Route::post('/contest-notice/store', '\App\Http\Controllers\Admin\ContestNoticeController@store')->name('contest-notice.store');
+Route::get('/contest-notice/{id}', '\App\Http\Controllers\Admin\ContestNoticeController@edit')->name('contest-notice.edit');
+Route::post('/contest-notice/update/{id}', '\App\Http\Controllers\Admin\ContestNoticeController@update')->name('contest-notice.update');
+Route::get('/contest-notice/delete/{id}', '\App\Http\Controllers\Admin\ContestNoticeController@destroy')->name('contest-notice.delete');
 
 
 

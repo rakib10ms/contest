@@ -49,7 +49,7 @@
       <td>{{$contest->name}}</td>
       <td>{{$contest->topic_name}}</td>
       <td>{{$contest->description}}</td>
-      <td><img src="{{asset('assets/uploads/contest/'.$contest->image)}}" style="height:100px;width: 100px;object-fit:cover"/></td>
+      <td><img src="{{asset('public/assets/uploads/contest/'.$contest->image)}}" style="height:100px;width: 100px;object-fit:cover"/></td>
       <td>{{$contest->start_date}}</td>
       <td>{{$contest->end_date}}</td>
       <td>

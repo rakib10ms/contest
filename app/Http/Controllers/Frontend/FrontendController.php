@@ -22,7 +22,7 @@ class FrontendController extends Controller
   
     public function index(){
 
-      $contests=DB::table('contests')->join('topics','contests.topic_id','=','topics.id')->select('contests.*','topics.name as topic_name')->where('contests.status','1')->orderBy('id','desc')->Paginate(6);
+      $contests=DB::table('contests')->join('topics','contests.topic_id','=','topics.id')->select('contests.*','topics.name as topic_name')->where('contests.status','1')->orderBy('id','desc')->paginate(4);
 
 
 
@@ -53,7 +53,7 @@ class FrontendController extends Controller
 
 
  public function pastContest(){
-      $pastContest = Contest::orderBy('end_date','DESC')->where('end_date', '<', Carbon::now())->get();
+      $pastContest = Contest::where('end_date', '<', Carbon::now())->paginate(4);
           return view('frontend.past-contest',compact('pastContest'));
 
     }
@@ -183,7 +183,7 @@ class FrontendController extends Controller
 
     public function runningContest($id){
     
-          $findContest=DB::table('contests')->join('topics','contests.topic_id','=','topics.id')->select('contests.*','topics.name as topic_name')->where('contests.status','1')->where('topic_id',$id)->orderBy('id','desc')->simplePaginate(9);
+          $findContest=DB::table('contests')->join('topics','contests.topic_id','=','topics.id')->select('contests.*','topics.name as topic_name')->where('contests.status','1')->where('topic_id',$id)->orderBy('id','desc')->simplePaginate(6);
            
 
       return view('frontend.all-runningContest',compact('findContest'));
@@ -197,7 +197,7 @@ class FrontendController extends Controller
          $pastCon=DB::table('contests')->where('id',$thisId)->first();
          // dd($pastCon);         
 
-         $pastContestWinner = DB::table('contest_winners')->join('contests','contests.id','=','contest_winners.contest_id')->join('users','users.id','contest_winners.user_id')->select('contest_winners.*','users.name as user_name','users.email as email')->where('contest_id',$id)->get();
+         $pastContestWinner = DB::table('contest_winners')->join('contests','contests.id','=','contest_winners.contest_id')->join('users','users.id','contest_winners.user_id')->select('contest_winners.*','users.name as user_name','users.email as email','users.district as district')->where('contest_id',$id)->get();
 
         
          return view('frontend.pastcon-winnerDesc',compact('pastContestWinner','pastCon'));
@@ -295,6 +295,8 @@ class FrontendController extends Controller
        public function deleteContact($id){
          $data=Contact::find($id);
          $data->delete();
+    return redirect()->back()->with('status','Contact deleted successfully');
+
        }
   
 }

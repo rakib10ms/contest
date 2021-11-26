@@ -75,7 +75,9 @@ class ContestNoticeController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $findId=ContestNotice::find($id);
+        return view('backend.contest-notice.edit',compact('findId'));
     }
 
     /**
@@ -87,7 +89,13 @@ class ContestNoticeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $update=ContestNotice::find($id);
+         $update->description=$request->description;
+         $update->update();
+
+    return redirect()->route('contest-notice')->with('status','ContestNotifciation updated to all users');
+
+
     }
 
     /**
@@ -98,6 +106,9 @@ class ContestNoticeController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $delete=ContestNotice::find($id);
+      $delete->delete();
+    return redirect()->route('contest-notice')->with('status','ContestNotifciation Deleted successfully');
+
     }
 }

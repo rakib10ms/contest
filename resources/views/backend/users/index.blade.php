@@ -32,7 +32,7 @@
     @foreach($allUsers as $key => $user)
     <tr>
       <th scope="row">{{$key+1}}</th>
-      <td><img src="{{asset('assets/uploads/users/'.$user->image)}}" style="width:80px;height: 80px;object-fit: cover;" /></td>
+      <td><img src="{{asset('public/assets/uploads/users/'.$user->image)}}" style="width:80px;height: 80px;object-fit: cover;" /></td>
       <td>{{$user->name}}</td>
       <td>{{$user->email}}</td>
       <td>{{$user->phone}}</td>

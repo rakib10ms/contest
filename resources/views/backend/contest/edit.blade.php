@@ -35,7 +35,7 @@
 
    <div class="form-group  col-md-10">
     <label for="exampleFormControlTextarea1" class="d-block">Image *</label>
-<img src="{{asset('assets/uploads/contest/'.$editContest->image)}}" style="height:100px;width: 100px;object-fit:cover"/>   <input type="file" class="form-control" id="text" placeholder="Contest Image"  name="image" value="{{$editContest->image}}" >
+<img src="{{asset('public/assets/uploads/contest/'.$editContest->image)}}" style="height:100px;width: 100px;object-fit:cover"/>   <input type="file" class="form-control" id="text" placeholder="Contest Image"  name="image" value="{{$editContest->image}}" >
 
  
   </div>

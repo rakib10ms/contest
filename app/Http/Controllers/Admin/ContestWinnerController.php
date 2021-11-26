@@ -22,8 +22,10 @@ class ContestWinnerController extends Controller
                       ->where('contest_results.id',$id)
                        ->first();
                        
-                 $contestId=$specific->contest_id;      
+                 $contestId=$specific->contest_id;  
                  $userId=$specific->user_id;      
+                    dd($userId);    
+
 
       $check=DB::table('contest_winners')
                       ->join('users','contest_winners.user_id','=','users.id')

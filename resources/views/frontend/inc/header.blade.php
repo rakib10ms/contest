@@ -30,13 +30,13 @@
    <!--  <title>Bracket Plus Responsive Bootstrap 4 Admin Template</title> -->
 
     <!-- vendor css -->
-    <link href="{{asset('Backend/lib/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
-    <link href="{{asset('Backend/lib/ionicons/css/ionicons.min.css')}}" rel="stylesheet">
-    <link href="{{asset('Backend/lib/rickshaw/rickshaw.min.css')}}" rel="stylesheet">
-    <link href="{{asset('Backend/lib/select2/css/select2.min.css')}}" rel="stylesheet">
+    <link href="{{asset('public/Backend/lib/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
+    <link href="{{asset('public/Backend/lib/ionicons/css/ionicons.min.css')}}" rel="stylesheet">
+    <link href="{{asset('public/Backend/lib/rickshaw/rickshaw.min.css')}}" rel="stylesheet">
+    <link href="{{asset('public/Backend/lib/select2/css/select2.min.css')}}" rel="stylesheet">
 
     <!-- Bracket CSS -->
-    <link rel="stylesheet" href="{{asset('Backend/css/bracket.css')}}">
+    <link rel="stylesheet" href="{{asset('public/Backend/css/bracket.css')}}">
 
         <link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
         <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css">

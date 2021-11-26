@@ -64,7 +64,7 @@ background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
     cursor: pointer;
 }
 </style>
-<div class="container contact-form">
+<div class="container contact-form" style="background:#ddddd">
             <div class="contact-image">
                 <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
             </div>

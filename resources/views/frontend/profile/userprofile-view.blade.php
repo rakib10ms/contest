@@ -18,7 +18,7 @@ Homepage
 
 
    <div class="card" style="width: 350px;">
-<img src="{{asset('assets/uploads/users/'.$myInfo->image)}} "class="card-image-top" style="width:120px; height: 120px; object-fit: cover;" />  <div class="card-body">
+<img src="{{asset('public/assets/uploads/users/'.$myInfo->image)}} "class="card-image-top" style="width:120px; height: 120px; object-fit: cover;" />  <div class="card-body">
     <h5 class="card-title">My Profile</h5>
     <p class="card-text"> <button class="btn btn-light btn-sm">Name: </button>{{$myInfo->name}}</p>
     <p class="card-text"><button class="btn btn-light btn-sm"> Email: </button>{{$myInfo->email}}</p>

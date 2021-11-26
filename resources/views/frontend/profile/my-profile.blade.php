@@ -18,7 +18,7 @@ Homepage
   @csrf
   <!-- 2 column grid layout with text inputs for the first and last names -->
   <div class="text-right py-3">
-    <img src="{{asset('assets/uploads/users/'.$user->image)}}" style="width:80px;border: 1px solid #c4c4c4; height: 80px;margin-top: -50px;object-fit: cover;" >
+    <img src="{{asset('public/assets/uploads/users/'.$user->image)}}" style="width:80px;border: 1px solid #c4c4c4; height: 80px;margin-top: -50px;object-fit: cover;" >
   </div>
   @if(session()->has('status'))
     <div class="alert alert-success">
