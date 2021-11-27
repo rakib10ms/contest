@@ -209,7 +209,7 @@ class ContestController extends Controller
       
         $deleteContest->delete();
 
-        return redirect()->route('contest.index');
+        return redirect()->route('contest.index')->with('status','contest deleted successfully');
 
 
       

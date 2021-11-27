@@ -21,10 +21,9 @@ class ContestWinnerController extends Controller
                       ->select('contest_results.*','users.name as user_name','contests.name as contest_name','users.email')
                       ->where('contest_results.id',$id)
                        ->first();
-                       
                  $contestId=$specific->contest_id;  
+
                  $userId=$specific->user_id;      
-                    dd($userId);    
 
 
       $check=DB::table('contest_winners')
@@ -105,6 +104,13 @@ class ContestWinnerController extends Controller
 
 
           
+    }
+
+    public function destroy($id){
+      $delete=ContestWinner::find($id);
+      $delete->delete();
+        return redirect()->route('all-winner')->with('status','Winner deleted successfully');
+
     }
 
 

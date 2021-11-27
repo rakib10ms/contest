@@ -20,13 +20,13 @@ background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner" style="width: 100%;height:60vh;object-fit:cover; margin:0 auto;">
     <div class="carousel-item active">
-      <img class="d-block w-100 " src="https://cdn5.vectorstock.com/i/1000x1000/61/09/banner-with-text-contest-tournament-vector-28786109.jpg" alt="First slide">
+      <img class="d-block w-100 " src="https://us.123rf.com/450wm/nexusplexus/nexusplexus2001/nexusplexus200106784/139002611-hand-touch-technology-background-with-lines-and-dots-3d-rendering.jpg?ver=6" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="https://previews.123rf.com/images/syuzannam/syuzannam1802/syuzannam180200507/95817488-contest-lettering-horizontal-contest-banner-sliced-text-effect-element-for-graphic-design-poster-fly.jpg" alt="Second slide">
+      <img class="d-block w-100" src="https://media.istockphoto.com/photos/businessman-writing-yellow-five-star-to-customer-evaluation-service-picture-id1276634862?b=1&k=20&m=1276634862&s=170667a&w=0&h=WWr2lgOPbg5iE3w6ycKSvdrysktLoztbmpfruFTPZyo=" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="https://as1.ftcdn.net/v2/jpg/03/43/43/72/1000_F_343437244_HrxIVZWbfh29tgxuRlxbPXEpHMSmfkAn.jpg" alt="Third slide">
+      <img class="d-block w-100" src="https://st3.depositphotos.com/1071909/19574/i/600/depositphotos_195745476-stock-photo-artificial-intelligence-ai.jpg" alt="Third slide">
     </div>
   </div>
 

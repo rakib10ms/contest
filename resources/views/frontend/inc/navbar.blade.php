@@ -24,7 +24,7 @@
 <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light fixed-top">
 <div class="container"> <a class="navbar-brand d-flex align-items-center" href="#">
 
-<span class="ml-3 font-weight-bold">CONTEST</apan>
+<span class="ml-3 font-weight-bold">CONTEST </span>
 </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
 <span class="navbar-toggler-icon"></span>
 </button>

@@ -1,27 +1,35 @@
 @extends('backend.master')
 @section('section')
 
-
+<div class="d-flex justify-content-between">
 <h1> All CONTEST  </h1>
-
-<div class="col-md-5 mx-5" style="margin-left: 400px;">
-  <form action="{{route('contest.search')}}" method="POST" class="d-flex mx-5">
-    @csrf
-  <div class="form-outline w-100">
-    <input type="search" id="form1" class="form-control" name="contest_code" placeholder="search contest with code"  />
-  </div>
-  <button type="submit" class="btn btn-primary d-block mx-2">
-    <i class="fas fa-search "></i>
-  </button>
-</form>
+<a href="{{route('contest.create')}}" class="btn btn-primary float-right">ADD CONTEST</a>
 </div>
 
+  
 
 
 
-@include('message.message')
+    <div class="d-flex justify-content-center">
+            <div class="col-md-5 mx-5 my-2" >
+              <form action="{{route('contest.search')}}" method="POST" class="d-flex mx-5">
+                @csrf
+              <div class="form-outline w-100">
+                <input type="search" id="form1" class="form-control" name="contest_code" placeholder="search contest with code"  />
+              </div>
+              <button type="submit" class="btn btn-primary d-block mx-2">
+                <i class="fas fa-search "></i>
+              </button>
+            </form>
 
-<a href="{{route('contest.create')}}" class="btn btn-primary float-right">ADD CONTEST</a>
+
+            </div>
+    </div>
+   @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+   @endif
 
 <table class="table table-bordered" id="example">
   <thead>
@@ -64,10 +72,10 @@
      <a href="{{route('contest.edit',$contest->id)}}" class="btn btn-success">EDIT  </a>
      <a href="{{route('contest.specificUsers',$contest->id)}}" class="btn btn-info">All Users  </a>
      <!-- Button trigger modal -->
-  <!--     <a href="{{route('contest.destroy',$contest->id)}}" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$contest->id}}">
+      <a href="{{route('contest.destroy',$contest->id)}}" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$contest->id}}">
         DELETE
       </a>
- -->
+
       <!-- Modal -->
       <div class="modal fade" id="exampleModal{{$contest->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

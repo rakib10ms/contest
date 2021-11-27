@@ -65,6 +65,7 @@ Route::get('/dashboard','\App\Http\Controllers\Admin\DashboardController@index')
 
 //all winner
     Route::get('all/winner', '\App\Http\Controllers\Admin\ContestWinnerController@allWinner')->name('all-winner');
+      Route::get('contestwinner/delete/{id}', '\App\Http\Controllers\Admin\ContestWinnerController@destroy')->name('contestwinner.delete');
 
 //contact 
 Route::get('/contact/all', '\App\Http\Controllers\Frontend\FrontendController@allContact')->name('all-contact');
